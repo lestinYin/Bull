@@ -1,7 +1,9 @@
-package com.future.taurus
+package com.future.taurus.ui
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.future.taurus.R
+
 
 class ASplash : AppCompatActivity() {
 

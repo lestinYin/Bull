@@ -8,12 +8,13 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 
-import com.xiaozhu.pinche.R;
-import com.xiaozhu.pinche.network.RequestHandler;
-import com.xiaozhu.pinche.utils.DeviceUtil;
-import com.xiaozhu.pinche.widget.LoadMoreWrapper;
-import com.xiaozhu.pinche.widget.statelayout.PrimaryStateLayout;
-import com.xiaozhu.pinche.widget.statelayout.ShowStateOption;
+
+import com.future.taurus.R;
+import com.future.taurus.network.RequestHandler;
+import com.future.taurus.utils.DeviceUtil;
+import com.future.taurus.widget.LoadMoreWrapper;
+import com.future.taurus.widget.statelayout.PrimaryStateLayout;
+import com.future.taurus.widget.statelayout.ShowStateOption;
 
 import io.reactivex.Observable;
 import io.reactivex.disposables.CompositeDisposable;
@@ -110,7 +111,7 @@ public abstract class BaseListMoreFragment<E extends DataMode<T>, T> extends Bas
         boolean isNet = DeviceUtil.isNetworkAvailable(getActivity());
         if (!isNet) {
             closeProgressDialog();
-            state.showCustom(new ShowStateOption("开小差\n不小心出错了没网", R.drawable.net_wrong));
+            state.showCustom(new ShowStateOption("开小差\n不小心出错了没网", R.mipmap.no_data));
             return;
         }
         Observable<E> observable = getData(page);
@@ -119,7 +120,7 @@ public abstract class BaseListMoreFragment<E extends DataMode<T>, T> extends Bas
                 .doOnError(throwable -> {
                     if (mPage > 1) mPage--;
                     closeProgressDialog();
-                    state.showCustom(new ShowStateOption("开小差\n不小心出错了\n访问不成功", R.drawable.net_wrong));
+                    state.showCustom(new ShowStateOption("开小差\n不小心出错了\n访问不成功", R.mipmap.no_data));
                 })
                 .onExceptionResumeNext(Observable.<E>empty())
                 .onErrorResumeNext(Observable.<E>empty())
@@ -130,7 +131,7 @@ public abstract class BaseListMoreFragment<E extends DataMode<T>, T> extends Bas
                         if (mPage == 1) {
                             swipeRefresh.setRefreshing(false);
                             if (dataMode.getList().size() <= 0) {
-                                state.showCustom(new ShowStateOption("无相关内容", R.drawable.no_data));
+                                state.showCustom(new ShowStateOption("无相关内容", R.mipmap.no_data));
                             } else {
                                 mAdapter.setData(dataMode.getList());
                                 loadMoreWrapper.notifyDataSetChanged();
@@ -145,7 +146,7 @@ public abstract class BaseListMoreFragment<E extends DataMode<T>, T> extends Bas
                             }
                         }
                     } else {
-                        state.showCustom(new ShowStateOption("无相关内容", R.drawable.no_data));
+                        state.showCustom(new ShowStateOption("无相关内容", R.mipmap.no_data));
                         closeProgressDialog();
                     }
                     closeProgressDialog();

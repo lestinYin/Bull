@@ -1,4 +1,4 @@
-package com.xiaozhu.pinche.utils
+package com.future.taurus.utils
 
 import android.view.View
 import android.view.ViewGroup
@@ -8,15 +8,15 @@ import java.text.NumberFormat
 
 
 /**
- * @name Pinche
- * @class name：com.xiaozhu.pinche.utils
- * @class describe
- * @author lestin.yin yinmaolin8@gmail.com
- * @time 2018/7/25 下午4:44
- * @change
- * @chang time
- * @class describe
+ * @ProjectName:
+ * @Package:
+ * @ClassName:
+ * @Description: 工具类
+ * @Author: Lestin.Yin
+ * @CreateDate: 2019/7/23 11:37
+ * @Version: 1.0
  */
+
 object Utils {
     /**
      * 测量View的宽高

@@ -1,4 +1,4 @@
-package com.xiaozhu.pinche.base
+package com.future.taurus.base
 
 import android.app.Activity
 import android.content.Context
@@ -9,8 +9,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
-import com.xiaozhu.pinche.Constants
-import com.xiaozhu.pinche.MyApplication
+import com.future.taurus.Constants
+import com.future.taurus.MyApplication
+import com.future.taurus.R
+import com.future.taurus.entity.EUser
+import com.future.taurus.net.model.MainModel
+import com.future.taurus.utils.DialogUtil
+import com.future.taurus.utils.jsonUtils.SPManager
+import com.gyf.barlibrary.ImmersionBar
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
@@ -33,7 +39,6 @@ abstract class FBase : Fragment() {
 
     var spManager : SPManager = SPManager(MyApplication.context)
     var mUser : EUser? = null
-    protected var mBinder: Unbinder? = null
 
     val mainModel: MainModel by lazy {
         MainModel()
@@ -118,10 +123,6 @@ abstract class FBase : Fragment() {
 
         if (mImmersionBar != null)
             mImmersionBar!!.destroy() //必须调用该方法，防止内存泄漏，不调用该方法，如果界面bar发生改变，在不关闭app的情况下，退出此界面再进入将记忆最后一次bar改变的状态
-
-        if (mBinder != null) {
-            mBinder!!.unbind()
-        }
     }
 
     fun addSubscription(disposable: Disposable) {

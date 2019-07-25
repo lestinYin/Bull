@@ -1,6 +1,5 @@
-package com.xiaozhu.pinche
+package com.future.taurus
 
-import com.future.taurus.BuildConfig
 
 
 /**
@@ -18,6 +17,8 @@ class Constants private constructor() {
         val retxtpwd = "^(?=.*[0-9].*)(?=.*[A-Z].*)(?=.*[a-z].*).{6,20}$"
         //用户信息
         val USER_INFO: String = "user_info"
+
+        val TOKEN : String = "token"
     }
 
 }

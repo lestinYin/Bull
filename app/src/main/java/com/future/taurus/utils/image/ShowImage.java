@@ -6,8 +6,8 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
-import com.xiaozhu.pinche.R;
-import com.xiaozhu.pinche.widget.photoview.PhotoView;
+import com.future.taurus.R;
+import com.future.taurus.widget.photoview.PhotoView;
 
 import java.io.ByteArrayOutputStream;
 
@@ -52,8 +52,8 @@ public class ShowImage {
         GlideApp.with(context).asBitmap()
                 .load(url)
                 .circleCrop()
-                .error(R.drawable.head_img_default)//占位图片
-                .placeholder(R.drawable.head_img_default)//异常图片
+                .error(R.drawable.ic_launcher_background)//占位图片
+                .placeholder(R.drawable.ic_launcher_background)//异常图片
                 .into(imageView);
 
     }

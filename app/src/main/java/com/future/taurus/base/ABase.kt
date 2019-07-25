@@ -1,4 +1,4 @@
-package com.xiaozhu.pinche.base
+package com.future.taurus.base;
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -8,22 +8,29 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
-import com.xiaozhu.pinche.Constants
-import com.xiaozhu.pinche.MyApplication.Companion.context
+import com.future.taurus.BuildConfig
+import com.future.taurus.Constants
+import com.future.taurus.MyApplication.Companion.context
+import com.future.taurus.R
+import com.future.taurus.entity.EUser
+import com.future.taurus.net.model.MainModel
+import com.future.taurus.utils.DialogUtil
+import com.future.taurus.utils.jsonUtils.SPManager
+import com.future.taurus.utils.statubar.ImmersionBar
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
 
 /**
- * @name Pinche
- * @class name：com.xiaozhu.pinche.base
- * @class describe
- * @author lestin.yin yinmaolin8@gmail.com
- * @time 2018/7/9 下午9:53
- * @change
- * @chang time
- * @class describe
+ * @ProjectName:
+ * @Package:
+ * @ClassName:
+ * @Description: activity基类
+ * @Author: Lestin.Yin
+ * @CreateDate: 2019/7/23 10:32
+ * @Version: 1.0
  */
+
 abstract class ABase : AppCompatActivity() {
 
     private var compositeDisposable = CompositeDisposable()

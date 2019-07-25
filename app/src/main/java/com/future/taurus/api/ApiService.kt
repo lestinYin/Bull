@@ -1,7 +1,8 @@
-package com.hazz.kotlinmvp.api
+package com.future.taurus.api
 
 
 
+import com.future.taurus.entity.ECode
 import io.reactivex.Observable
 import retrofit2.http.POST
 import retrofit2.http.Query
@@ -20,7 +21,7 @@ interface ApiService {
     /**
      */
     @POST("")
-    fun isRegistPhone(@Query("") phone: String): Observable<Object>
+    fun isRegistPhone(@Query("") phone: String): Observable<ECode>
 
 
 

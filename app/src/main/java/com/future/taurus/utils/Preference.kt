@@ -1,9 +1,9 @@
-package com.xiaozhu.pinche.utils
+package com.future.taurus.utils;
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
-import com.xiaozhu.pinche.MyApplication
+import com.future.taurus.MyApplication
 import java.io.*
 import kotlin.reflect.KProperty
 

@@ -1,4 +1,4 @@
-package com.xiaozhu.pinche.utils
+package com.future.taurus.utils
 
 import android.annotation.TargetApi
 import android.graphics.drawable.ColorDrawable
@@ -222,7 +222,7 @@ object SnackbarUtils {
      * @param alpha
      * @return
      */
-    fun alpha(alpha: Float): SnackbarUtils {
+    fun alphas(alpha: Float): SnackbarUtils {
         var alpha = alpha
         if (getSnackbar() != null) {
             alpha = if (alpha >= 1.0f) 1.0f else if (alpha <= 0.0f) 0.0f else alpha
@@ -310,14 +310,14 @@ object SnackbarUtils {
             var drawableRight: Drawable? = null
             if (leftDrawable != null) {
                 try {
-                    drawableLeft = getSnackbar()!!.view.resources.getDrawable(leftDrawable.toInt())
+                    drawableLeft = getSnackbar()!!.view.resources.getDrawable(leftDrawable.toInt(),null)
                 } catch (e: Exception) {
                 }
 
             }
             if (rightDrawable != null) {
                 try {
-                    drawableRight = getSnackbar()!!.view.resources.getDrawable(rightDrawable.toInt())
+                    drawableRight = getSnackbar()!!.view.resources.getDrawable(rightDrawable.toInt(),null)
                 } catch (e: Exception) {
                 }
 

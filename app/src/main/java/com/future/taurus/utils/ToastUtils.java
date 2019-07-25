@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.widget.Toast;
 
-import com.xiaozhu.pinche.MyApplication;
+import com.future.taurus.MyApplication;
 
 
 /**

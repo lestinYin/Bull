@@ -1,4 +1,4 @@
-package com.xiaozhu.pinche.utils
+package com.future.taurus.utils
 
 import android.app.Activity
 import android.content.Context
@@ -11,18 +11,20 @@ import android.support.annotation.RequiresApi
 import android.view.View
 import android.view.WindowManager
 import android.widget.LinearLayout
+import com.future.taurus.R
+import com.future.taurus.widget.ScrollViewListener
 
 
 /**
- * @name Pinche
- * @class name：com.xiaozhu.pinche.utils
- * @class describe
- * @author lestin.yin yinmaolin8@gmail.com
- * @time 2018/7/17 下午4:26
- * @change
- * @chang time
- * @class describe
+ * @ProjectName:
+ * @Package:
+ * @ClassName:
+ * @Description: java类作用描述
+ * @Author: Lestin.Yin
+ * @CreateDate: 2019/7/23 16:02
+ * @Version: 1.0
  */
+
 object ViewUtil  {
 
 

@@ -1,4 +1,4 @@
-package com.xiaozhu.pinche
+package com.future.taurus
 
 import android.app.Application
 import android.content.Context

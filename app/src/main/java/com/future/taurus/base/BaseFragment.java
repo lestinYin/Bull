@@ -7,31 +7,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.future.taurus.MyApplication;
+import com.future.taurus.R;
+import com.future.taurus.entity.EUser;
+import com.future.taurus.net.model.MainModel;
+import com.future.taurus.utils.DialogUtil;
+import com.future.taurus.utils.jsonUtils.SPManager;
 import com.gyf.barlibrary.ImmersionBar;
-import com.xiaozhu.pinche.MyApplication;
-import com.xiaozhu.pinche.R;
-import com.xiaozhu.pinche.net.model.MainModel;
-import com.xiaozhu.pinche.ui.my.EUser;
-import com.xiaozhu.pinche.utils.DialogUtil;
-import com.xiaozhu.pinche.utils.jsonUtils.SPManager;
 
 import org.greenrobot.eventbus.EventBus;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
-
 /**
- * @author lestin.yin yinmaolin8@gmail.com
- * @name Pinche
- * @class name：com.xiaozhu.pinche.base
- * @class describe
- * @time 2018/10/15 下午12:28
- * @change
- * @chang time
- * @class describe
+ * @ClassName: BaseFragment
+ * @Description: fragment基类
+ * @Author: Lestin.Yin
+ * @CreateDate: 2019/7/23 14:13
  */
+
 
 public abstract class BaseFragment extends Fragment {
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
@@ -40,7 +34,6 @@ public abstract class BaseFragment extends Fragment {
 
     public SPManager spManager = new SPManager(MyApplication.getContext());
     public EUser mUser = null;
-    protected Unbinder mBinder = null;
 
     public MainModel mainModel = new MainModel();
     /**
@@ -59,7 +52,6 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mBinder = ButterKnife.bind(getActivity());
 
         mUser = spManager.get("user_info", EUser.class);
         try {
@@ -113,9 +105,6 @@ public abstract class BaseFragment extends Fragment {
         if (mImmersionBar != null)
             mImmersionBar.destroy(); //必须调用该方法，防止内存泄漏，不调用该方法，如果界面bar发生改变，在不关闭app的情况下，退出此界面再进入将记忆最后一次bar改变的状态
 
-        if (mBinder != null) {
-            mBinder.unbind();
-        }
     }
 
 

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_221"
+    android:layout_marginTop="@dimen/dp_20"
+    android:layout_marginLeft="@dimen/dp_15"
+    android:layout_marginRight="@dimen/dp_15"
+    android:elevation="@dimen/dp_1"
+    android:id="@+id/rl_root"
+    android:background="@drawable/shape_home_store_bg">
+
+    <ImageView
+        android:id="@+id/iv_store_img"
+        android:layout_width="match_parent"
+        android:scaleType="centerCrop"
+        android:layout_height="@dimen/dp_130" />
+
+    <RelativeLayout
+        android:id="@+id/rl_home_store_info"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_38"
+        android:layout_below="@id/iv_store_img">
+
+        <ImageView
+            android:id="@+id/iv_head_img"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_10" />
+
+        <TextView
+            android:id="@+id/tv_home_store_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_7"
+            android:layout_toRightOf="@id/iv_head_img"
+            android:text="威廉一世"
+            android:textColor="@color/color_777777"
+            android:textSize="10sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_toRightOf="@id/tv_home_store_name"
+            android:background="@drawable/shape_home_store_tag_bg"
+            android:padding="@dimen/dp_2"
+            android:textSize="8sp"
+            android:text="全能玩乐达人" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_home_store_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_home_store_info"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:text="“温莎是市中心最好的KTV，我们都来这里唱歌喝酒”"
+        android:textColor="#ff353b50"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tv_home_store_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_home_store_title"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_10"
+        android:drawableLeft="@mipmap/icon_wanfa"
+        android:drawablePadding="@dimen/dp_2"
+        android:text="玩法微攻略"
+        android:textColor="#ff777777"
+        android:textSize="10sp" />
+
+
+    <ImageView
+        android:id="@+id/iv_head1"
+        android:layout_width="@dimen/dp_17"
+        android:layout_height="@dimen/dp_16"
+        android:layout_below="@id/tv_home_store_title"
+        android:layout_marginLeft="@dimen/dp_3"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_toEndOf="@id/tv_home_store_share"
+         />
+
+    <ImageView
+        android:id="@+id/iv_head2"
+        android:layout_width="@dimen/dp_17"
+        android:layout_height="@dimen/dp_16"
+        android:layout_below="@id/tv_home_store_title"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_toEndOf="@id/iv_head1"
+        android:layout_marginStart="-5dp"
+         />
+
+    <ImageView
+        android:id="@+id/iv_head3"
+        android:layout_width="@dimen/dp_17"
+        android:layout_height="@dimen/dp_16"
+        android:layout_below="@id/tv_home_store_title"
+        android:layout_marginStart="-5dp"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_toEndOf="@id/iv_head2"
+         />
+
+    <ImageView
+        android:id="@+id/iv_head4"
+        android:layout_width="@dimen/dp_17"
+        android:layout_height="@dimen/dp_16"
+        android:layout_below="@id/tv_home_store_title"
+        android:layout_marginStart="-5dp"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_toEndOf="@id/iv_head3"
+         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="52条"
+        android:textColor="#ff777777"
+        android:textSize="10sp"
+        android:layout_below="@id/tv_home_store_title"
+        android:layout_marginTop="@dimen/dp_10"
+       android:layout_toEndOf="@id/iv_head4"
+        android:layout_marginStart="@dimen/dp_6"
+
+        />
+    <TextView
+        android:id="@+id/tv_home_store_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_home_store_title"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="600米"
+        android:textColor="#ff777777"
+        android:textSize="10sp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/dp_10"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_home_store_title"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="温莎KTV"
+        android:textColor="#ff777777"
+        android:textSize="10sp"
+        android:background="@drawable/shape_home_store_location_bg"
+        android:drawableLeft="@mipmap/home_store_location"
+        android:drawablePadding="@dimen/dp_4"
+        android:layout_toLeftOf="@id/tv_home_store_distance"
+        android:layout_marginRight="@dimen/dp_6"
+        android:paddingLeft="@dimen/dp_6"
+        android:paddingRight="@dimen/dp_6"
+        />
+
+</RelativeLayout>

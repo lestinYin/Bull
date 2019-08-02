@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp_26"
+    >
+    <TextView
+        android:id="@+id/tv_bound"
+        android:layout_width="78dp"
+        android:layout_height="25dp"
+        android:text="推荐攻略"
+        android:textColor="#ff353b50"
+        android:textSize="18sp"
+        android:layout_centerHorizontal="true"
+        />
+    <View
+        android:layout_width="@dimen/dp_69"
+        android:layout_height="@dimen/dp_1"
+        android:layout_centerVertical="true"
+        android:background="@color/color_C3C3C3"
+        android:layout_toLeftOf="@id/tv_bound"
+        android:layout_marginRight="@dimen/dp_19"
+        />
+    <View
+        android:layout_width="@dimen/dp_69"
+        android:layout_height="@dimen/dp_1"
+        android:layout_centerVertical="true"
+        android:background="@color/color_C3C3C3"
+        android:layout_toRightOf="@id/tv_bound"
+        android:layout_marginLeft="@dimen/dp_19"
+        />
+
+</RelativeLayout>

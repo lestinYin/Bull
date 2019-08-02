@@ -3,10 +3,10 @@ package com.future.taurus.ui.home
 import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import com.future.taurus.R
-import com.future.taurus.base.ABase
 import com.future.taurus.ui.home.adapter.CommonPagerAdapter
 import com.future.taurus.ui.home.fragment.FHome
-import com.future.taurus.utils.SetIndicater
+import com.lestin.yin.base.ABase
+import com.lestin.yin.utils.SetIndicater
 import kotlinx.android.synthetic.main.activity_ahome.*
 import java.util.ArrayList
 
@@ -18,12 +18,10 @@ import java.util.ArrayList
  */
 
 class AHome : ABase() {
-    override fun layoutId(): Int {
-        return R.layout.activity_ahome
-    }
+    override fun layoutId(): Int = R.layout.activity_ahome
 
     override fun initView() {
-        mImmersionBar!!.statusBarView(top_white).init()
+        mImmersionBar!!.statusBarDarkFont(true).statusBarColor(R.color.transparent).init()
     }
 
     override fun initData() {

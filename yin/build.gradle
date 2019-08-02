@@ -1,0 +1,68 @@
+apply plugin: 'com.android.library'
+//各模块中kotlin文件可以相互调用
+apply plugin: 'kotlin-android'
+//减少findviewbyid
+apply plugin: 'kotlin-android-extensions'
+
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.3"
+
+
+    defaultConfig {
+        minSdkVersion 24
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField "boolean", "isReleaseEnv", "false"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            buildConfigField "boolean", "isReleaseEnv", "true"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    api 'com.android.support:appcompat-v7:26.1.0'
+    api 'com.android.support:design:26.1.0'
+    api 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    //gson
+    compile 'com.google.code.gson:gson:2.8.5'
+    // 网络请求库
+    api rootProject.ext.networkLibs
+    // RxJava2
+    api rootProject.ext.rxJavaLibs
+    //状态栏
+    implementation 'com.gyf.barlibrary:barlibrary:2.3.0'
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.3.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.3.1'
+    //eventbus
+    api 'org.greenrobot:eventbus:3.1.1'
+    //recyclerView common Adapter
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.45'
+    //zhy commonAdapter
+    api 'com.zhy:base-rvadapter:3.0.3'
+}

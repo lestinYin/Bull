@@ -32,6 +32,7 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         context = applicationContext
+        com.lestin.yin.MyApplication.context = context
 
 
 
@@ -45,9 +46,8 @@ class MyApplication : Application() {
         return this
     }
     fun exitApp() {
-        var intent : Intent? = null
+        var intent: Intent?
         intent = Intent(BuildConfig.APPLICATION_ID + ".intent.action.FINISH")
-        if (intent != null)
-            sendBroadcast(intent)
+        sendBroadcast(intent)
     }
 }

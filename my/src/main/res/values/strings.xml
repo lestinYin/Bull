@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">my</string>
+    <string name="chinese_englist">中文/EN</string>
+    <string name="my_like">喜欢</string>
+    <string name="my_share">分享</string>
+    <string name="my_daka">打卡</string>
+    <string name="my_tools">实用工具</string>
+    <string name="my_info">申请条件：打卡店铺不少于20，评论不少于50条，打卡次数不少于100次</string>
+    <string name="my_apply_daren">申请成为达人</string>
+    <string name="my_apply_small_info">打卡 + 320</string>
+    <string name="wallet">钱包</string>
+    <string name="invite">邀请</string>
+    <string name="zhuanjifen">赚积分</string>
+    <string name="my_invite_info">申请开通邀请奖励</string>
+    <string name="my_zhuanjifen_info">累计完成15个</string>
+</resources>

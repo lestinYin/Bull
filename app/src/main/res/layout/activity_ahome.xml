@@ -7,11 +7,7 @@
     android:background="@color/white"
     android:fitsSystemWindows="true"
     tools:context="com.future.taurus.ui.home.AHome">
-    <View
-        android:id="@+id/top_white"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@color/white"/>
+
     <TextView
         android:id="@+id/tv_theme"
         style="@style/tab_text"

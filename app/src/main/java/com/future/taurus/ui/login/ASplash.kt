@@ -3,15 +3,15 @@ package com.future.taurus.ui.login
 import android.content.Intent
 import android.view.WindowManager
 import com.future.taurus.R
-import com.future.taurus.base.ABase
 import com.future.taurus.ui.home.AHome
-import com.future.taurus.utils.statubar.BarHide
+import com.lestin.yin.base.ABase
+import com.lestin.yin.utils.statubar.BarHide
 
 
 class ASplash : ABase() {
     override fun layoutId(): Int {
-        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN)
+//        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+//                WindowManager.LayoutParams.FLAG_FULLSCREEN)
         return R.layout.activity_asplash
     }
 

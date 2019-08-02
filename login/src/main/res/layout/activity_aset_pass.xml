@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ASetPass">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_32"
+        android:background="@mipmap/my_back" />
+    <TextView
+        android:id="@+id/tv_set_pass_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/set_pass"
+        android:textColor="#ff303f51"
+        android:textSize="30sp"
+        style="@style/tab_text"
+        android:layout_marginTop="99dp"
+        android:layout_marginLeft="@dimen/dp_30"
+        />
+    <TextView
+        android:id="@+id/tv_setpass_error_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="报错区域"
+        android:textColor="#ffd73c2c"
+        android:textSize="14sp"
+        android:layout_below="@id/tv_set_pass_info"
+        android:layout_marginLeft="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_5"
+        />
+    <TextView
+        android:id="@+id/tv_tishi_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="8-20 个字符，数字+字母的密码组合"
+        android:textColor="#ff838c97"
+        android:textSize="14sp"
+        android:layout_below="@id/tv_setpass_error_info"
+        android:layout_marginLeft="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_10"
+        />
+    <EditText
+        android:id="@+id/et_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_30"
+        android:layout_below="@id/tv_tishi_message"
+        android:layout_marginRight="@dimen/dp_30"
+        android:background="@null"
+        android:layout_marginTop="27dp"
+        android:hint="@string/input_pass_hint"
+        android:textColor="@color/color_303f51"
+        android:textColorHint="@color/color_838C97"
+        android:textCursorDrawable="@null"
+        android:focusable="true"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textSize="16sp" />
+
+    <View
+        android:id="@+id/view_line_user"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:layout_below="@id/et_pass"
+        android:layout_marginLeft="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_30"
+        android:background="@color/color_E8EBEE" />
+
+    <EditText
+        android:id="@+id/et_invite_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view_line_user"
+        android:layout_marginLeft="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_30"
+        android:layout_marginRight="@dimen/dp_30"
+        android:background="@null"
+        android:hint="@string/input_invite_code"
+        android:textColor="@color/color_303f51"
+        android:textColorHint="@color/color_838C97"
+        android:textCursorDrawable="@null"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textSize="16sp" />
+
+    <View
+        android:id="@+id/view_line_pass"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:layout_below="@id/et_invite_code"
+        android:layout_marginLeft="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_30"
+        android:background="@color/color_E8EBEE" />
+    <TextView
+        android:id="@+id/tv_next_step"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="下一步"
+        android:textColor="#ffffffff"
+        android:textSize="16sp"
+        android:layout_below="@id/view_line_pass"
+        android:layout_marginTop="@dimen/dp_99"
+        android:background="@mipmap/login_bg_true"
+        android:layout_marginLeft="@dimen/dp_30"
+        android:layout_marginRight="@dimen/dp_30"
+        />
+</RelativeLayout>

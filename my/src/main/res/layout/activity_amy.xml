@@ -8,24 +8,7 @@
     tools:context=".AMy">
 
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dp_16"
-        android:layout_marginTop="@dimen/dp_32"
-        android:background="@mipmap/my_back" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="@dimen/dp_32"
-        android:layout_marginRight="@dimen/dp_16"
-        android:drawableRight="@mipmap/my_setting"
-        android:drawablePadding="@dimen/dp_5"
-        android:text="@string/chinese_englist"
-        android:textColor="@color/color_353B50"
-        android:textSize="12sp" />
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/net_scrollView"
         android:layout_width="match_parent"
@@ -37,9 +20,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
     <ImageView
+        android:id="@+id/iv_my_head_bg"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_162"
-        android:background="@mipmap/my_cover_img" />
+        android:background="@mipmap/my_cover_img"
+        />
 
     <RelativeLayout
         android:id="@+id/rl_head_img"
@@ -250,4 +235,24 @@
         android:textSize="10sp" />
         </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>
+    <ImageView
+        android:id="@+id/iv_my_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_32"
+        android:background="@mipmap/my_back"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/dp_32"
+        android:layout_marginRight="@dimen/dp_16"
+        android:drawableRight="@mipmap/my_setting"
+        android:drawablePadding="@dimen/dp_5"
+        android:text="@string/chinese_englist"
+        android:textColor="@color/color_353B50"
+        android:textSize="12sp" />
 </RelativeLayout>

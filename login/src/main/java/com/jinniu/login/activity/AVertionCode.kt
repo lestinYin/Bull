@@ -1,15 +1,14 @@
 package com.jinniu.login.activity
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
+import android.os.CountDownTimer
 import android.text.TextUtils
 import android.view.*
 import android.widget.EditText
 import com.jinniu.login.R
 import com.lestin.yin.base.ABase
 import com.lestin.yin.widget.VerificationCodeView
-import kotlinx.android.synthetic.main.activity_alogin.*
 import kotlinx.android.synthetic.main.activity_avertion_code.*
 import android.view.inputmethod.InputMethodManager as InputMethodManager
 
@@ -22,9 +21,11 @@ class AVertionCode : ABase() {
     var phone : String = ""
     var code : String = ""
     var getmEtOne : EditText? = null
+    var timeCount : TimeCount ? = null
 
     override fun layoutId(): Int = R.layout.activity_avertion_code
 
+    @SuppressLint("SetTextI18n")
     override fun initView() {
 
         mImmersionBar!!.statusBarDarkFont(true).statusBarColor(R.color.transparent).init()
@@ -33,10 +34,14 @@ class AVertionCode : ABase() {
 
         getmEtOne = verification_codeview.getmEtOne()
 
+        tv_tishi_message.text = "短信验证码已发送至+86 "+phone
+
         //显示软键盘
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
 
 
+        timeCount = TimeCount(60000, 1000)
+        timeCount!!.start()
     }
 
     @SuppressLint("WrongConstant")
@@ -59,6 +64,10 @@ class AVertionCode : ABase() {
             juadgeCode()
 
         }
+        iv_back.setOnClickListener {
+            finish()
+
+        }
 
 
     }
@@ -79,11 +88,22 @@ class AVertionCode : ABase() {
             return
         }
     }
-
     override fun start() {
     }
 
 
+    //计时器
+    inner class TimeCount(millisInFuture: Long, countDownInterval: Long)//参数依次为总时长,和计时的时间间隔
+        : CountDownTimer(millisInFuture, countDownInterval) {
+
+        //计时过程显示
+        override fun onTick(millisUntilFinished: Long) {
+            tv_second_time.text = "(" + millisUntilFinished / 1000 + "秒)"
+        }
+        override fun onFinish() {
+            tv_second_time.text = "重新发送"
+        }
+    }
 
 
 }

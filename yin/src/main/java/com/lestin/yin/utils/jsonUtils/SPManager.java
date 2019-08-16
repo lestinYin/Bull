@@ -21,7 +21,7 @@ public class SPManager implements Serializable{
     public SPManager(Context ctx) {
         mCtx = ctx;
 //        mSp = mCtx.getSharedPreferences(mCtx.getPackageName(), Context.MODE_PRIVATE);
-        mSp = mCtx.getSharedPreferences("com.lestin.yin", Context.MODE_PRIVATE);
+        mSp = mCtx.getSharedPreferences(mCtx.getPackageName(), Context.MODE_PRIVATE);
     }
 
     public String get(String key){

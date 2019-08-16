@@ -14,7 +14,6 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -24,9 +23,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.home.activity.AStoreComment"
-            android:theme="@style/myTransparent"
-            />
+        <activity android:name=".ui.home.activity.AHome"></activity>
+        <activity
+            android:name=".ui.home.activity.AStoreComment"
+            android:theme="@style/myTransparent" />
         <activity android:name=".ui.home.activity.AStoreDetail" />
         <activity
             android:name=".ui.login.ASplash"
@@ -37,8 +37,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".ui.home.AHome" />
+        <activity
+            android:name=".ui.home.ATop"
+            android:launchMode="singleTask" />
     </application>
 
 </manifest>

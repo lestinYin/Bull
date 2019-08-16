@@ -1,17 +1,16 @@
 package com.future.taurus.ui.login
 
-import android.content.Intent
 import android.view.WindowManager
+import com.alibaba.android.arouter.launcher.ARouter
 import com.future.taurus.R
-import com.future.taurus.ui.home.AHome
 import com.lestin.yin.base.ABase
 import com.lestin.yin.utils.statubar.BarHide
 
 
 class ASplash : ABase() {
     override fun layoutId(): Int {
-//        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-//                WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN)
         return R.layout.activity_asplash
     }
 
@@ -24,7 +23,15 @@ class ASplash : ABase() {
 
     override fun initData() {
         android.os.Handler().postDelayed({
-            startActivity(Intent(applicationContext, AHome::class.java))
+            //            startActivity(Intent(applicationContext, ATop::class.java))
+//            if (mUser != null) {
+                ARouter.getInstance().build("/app/home").navigation()
+//
+//            } else {
+//
+//                ARouter.getInstance().build("/login/login").navigation()
+//            }
+
             finish()
         }, 2000)
 

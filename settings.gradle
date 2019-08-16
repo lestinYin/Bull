@@ -1,1 +1,2 @@
-include ':app', ':yin', ':my', ':login'
+include ':app', ':yin', ':my', ':login', ':delivery'
+

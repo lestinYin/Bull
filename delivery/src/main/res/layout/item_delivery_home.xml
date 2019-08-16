@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/dp_15"
+    android:layout_marginRight="@dimen/dp_15"
+    android:layout_marginBottom="@dimen/dp_30">
+
+    <RelativeLayout
+        android:id="@+id/rl_store_pic"
+        android:layout_width="@dimen/dp_89"
+        android:layout_height="@dimen/dp_60">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@mipmap/delivery_icon_default" />
+
+        <TextView
+            android:layout_width="@dimen/dp_30"
+            android:layout_height="@dimen/dp_16"
+            android:layout_alignParentRight="true"
+            android:background="#F4564A"
+            android:gravity="center"
+            android:text="美食"
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_delivery_store_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_13"
+        android:layout_toRightOf="@id/rl_store_pic"
+        android:text="Say Coffee"
+        android:textColor="@color/color_333333"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_delivery_store_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_delivery_store_name"
+        android:layout_marginLeft="@dimen/dp_13"
+        android:layout_marginTop="@dimen/dp_4"
+        android:layout_toRightOf="@id/rl_store_pic"
+        android:drawableLeft="@mipmap/delivery_score_star"
+        android:drawablePadding="@dimen/dp_3"
+        android:text="4.6"
+        android:textColor="#fdc744"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_delivery_store_sale_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/tv_delivery_store_score"
+        android:layout_marginLeft="@dimen/dp_8"
+        android:layout_toRightOf="@id/tv_delivery_store_score"
+        android:text="月售8142"
+        android:textColor="@color/color_666666"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/tv_delivery_store_delivery_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/tv_delivery_store_score"
+        android:layout_marginLeft="@dimen/dp_66"
+        android:layout_toRightOf="@id/tv_delivery_store_sale_number"
+        android:text="38分钟"
+        android:textColor="@color/color_666666"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/tv_delivery_qisong"
+        style="@style/text_666666"
+        android:layout_below="@id/tv_delivery_store_delivery_time"
+        android:layout_marginLeft="@dimen/dp_13"
+        android:layout_marginTop="@dimen/dp_12"
+        android:layout_toRightOf="@id/rl_store_pic"
+        android:drawableRight="@mipmap/delivery_money_icon"
+        android:drawablePadding="@dimen/dp_4"
+        android:text="起送"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_delivery_start_money"
+        style="@style/text_666666"
+        android:layout_alignBaseline="@id/tv_delivery_qisong"
+        android:layout_toRightOf="@id/tv_delivery_qisong"
+        android:text="20"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_delivery_peisong"
+        style="@style/text_666666"
+        android:layout_alignBaseline="@id/tv_delivery_qisong"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_toRightOf="@id/tv_delivery_start_money"
+        android:drawableRight="@mipmap/delivery_money_icon"
+        android:drawablePadding="@dimen/dp_4"
+        android:text="配送"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_delivery_delivery_money"
+        style="@style/text_666666"
+        android:layout_alignBaseline="@id/tv_delivery_qisong"
+        android:layout_toRightOf="@id/tv_delivery_peisong"
+        android:text="20"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_delivery_renjun"
+        style="@style/text_666666"
+        android:layout_alignBaseline="@id/tv_delivery_qisong"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_toRightOf="@id/tv_delivery_delivery_money"
+        android:drawableRight="@mipmap/delivery_money_icon"
+        android:drawablePadding="@dimen/dp_4"
+        android:text="人均"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_delivery_delivery_averyge_money"
+        style="@style/text_666666"
+        android:layout_alignBaseline="@id/tv_delivery_qisong"
+        android:layout_toRightOf="@id/tv_delivery_renjun"
+        android:text="20"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_delivery_delivery_distance"
+        style="@style/text_666666"
+        android:layout_alignBaseline="@id/tv_delivery_qisong"
+        android:layout_alignParentRight="true"
+        android:text="616m"
+        android:textSize="12sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_delivery_qisong"
+        android:layout_marginLeft="@dimen/dp_13"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_toRightOf="@id/rl_store_pic"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_delivery_show_tag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <com.lestin.yin.widget.FlowLayout
+                android:id="@+id/delivery_flow_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@mipmap/delivery_radio_arrow_down_true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_delivery_show_tag_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            >
+
+            <TextView
+                android:id="@+id/tv_delivery_tag_manjian"
+                style="@style/text_333333"
+                android:drawableLeft="@mipmap/delivery_manjian"
+                android:drawablePadding="@dimen/dp_4"
+                android:text="满30减10，满55减20，满100减30"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tv_delivery_tag_zhekou"
+                style="@style/text_333333"
+                android:layout_below="@id/tv_delivery_tag_manjian"
+                android:layout_marginTop="@dimen/dp_7"
+                android:drawableLeft="@mipmap/delivery_zhekou"
+                android:drawablePadding="@dimen/dp_4"
+                android:text="折扣商品4.85折起"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tv_delivery_tag_new_user"
+                style="@style/text_333333"
+                android:layout_below="@id/tv_delivery_tag_zhekou"
+                android:layout_marginTop="@dimen/dp_7"
+                android:drawableLeft="@mipmap/delivery_new_user"
+                android:drawablePadding="@dimen/dp_4"
+                android:text="新用户立减17元（本优惠于新人首单红包不可同享）"
+                android:textSize="10sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@mipmap/delivery_arrow_up"
+                android:layout_alignTop="@id/tv_delivery_tag_manjian"
+                android:layout_marginTop="@dimen/dp_5"
+                />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

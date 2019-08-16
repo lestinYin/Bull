@@ -1,5 +1,6 @@
 package com.future.taurus.ui.home.activity
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -16,8 +17,10 @@ import android.view.*
 import com.future.taurus.MyApplication
 import com.future.taurus.R
 import com.future.taurus.ui.home.adapter.HomeAdapter
-import com.future.taurus.ui.home.entity.EHome
-import com.future.taurus.ui.home.entity.LHome
+import com.lestin.yin.Constants
+import com.lestin.yin.entity.IHomeType
+import com.lestin.yin.entity.ReviewInfo
+import com.lestin.yin.entity.StoreDetailContent
 import com.lestin.yin.utils.image.ShowImage
 import com.lestin.yin.widget.listener.AppBarStateChangeListener
 import kotlinx.android.synthetic.main.item_store_detail_bottom.*
@@ -31,6 +34,8 @@ import java.util.ArrayList
 class AStoreDetail : ABase() {
     private var mAlertDialog: AlertDialog? = null
     private var mDialogWindow: Window? = null
+    private var storeId : String = ""
+    private var page : Int = 1
 
 
     val titleText = TextView(MyApplication.context)
@@ -39,12 +44,15 @@ class AStoreDetail : ABase() {
     override fun layoutId(): Int = R.layout.activity_astore_detail
 
     override fun initView() {
+        showProgressDialog()
         mImmersionBar!!.statusBarColor(R.color.transparent).init()
 
+        storeId = intent.getStringExtra("id")
         toolbar.title = ""
         toolbar.setNavigationIcon(R.mipmap.store_detail_white_back)
         setSupportActionBar(toolbar)
-        setTitleCenter(toolbar)
+
+
 
     }
 
@@ -61,19 +69,16 @@ class AStoreDetail : ABase() {
                 } else if (state === State.COLLAPSED) {
                     //折叠状态
 //                    toolbar.setNavigationIcon(android.support.v7.appcompat.R.drawable.abc_ic_ab_back_material)
-
                     titleText.visibility = View.VISIBLE
                 } else {
                     //中间状态
 //                    toolbar.setNavigationIcon(android.support.v7.appcompat.R.drawable.abc_ic_ab_back_material)
-
                 }
             }
         })
-        ShowImage.showCircle(MyApplication.context, "https://upload.jianshu.io/users/upload_avatars/3333716/14924725-5e8f-4e3c-b77e-20a80f9b2ee3.png", iv_head1)
-        ShowImage.showCircle(MyApplication.context, "https://upload.jianshu.io/users/upload_avatars/3333716/14924725-5e8f-4e3c-b77e-20a80f9b2ee3.png", iv_head2)
-        ShowImage.showCircle(MyApplication.context, "https://upload.jianshu.io/users/upload_avatars/3333716/14924725-5e8f-4e3c-b77e-20a80f9b2ee3.png", iv_head3)
-        ShowImage.showCircle(MyApplication.context, "https://upload.jianshu.io/users/upload_avatars/3333716/14924725-5e8f-4e3c-b77e-20a80f9b2ee3.png", iv_head4)
+
+        getDateFromInterface()
+
         //点击返回键
         toolbar.setNavigationOnClickListener {
             finish()
@@ -81,6 +86,7 @@ class AStoreDetail : ABase() {
         tv_store_comment.setOnClickListener {
             //跳转到评论页
             var intent = Intent(MyApplication.context, AStoreComment::class.java)
+            intent.putExtra("id",storeId)
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.anim_botteom_silent)
         }
@@ -88,6 +94,52 @@ class AStoreDetail : ABase() {
         iv_store_detail_call_phone.setOnClickListener {
             showCallPhoneDialog()
         }
+
+    }
+    //调取接口
+    @SuppressLint("CheckResult")
+    private fun getDateFromInterface() {
+        mainModel.getStoreDetail(storeId, "1", "1",page.toString(),"10").subscribe { result ->
+            if (Constants.SUCCESS.equals(result.code.toString())) {
+                fillData(result.content)
+
+            }
+        }
+
+
+    }
+    //填充数据
+    private fun fillData(content: StoreDetailContent) {
+        setTitleCenter(toolbar,content.storeInfo.storeName)
+        tv_store_detail_title.text = content.storeInfo.storeName
+        ShowImage.show(this,content.storeInfo.storePics[0],mIv)
+
+        tv_store_detail_tag.text = "#"+content.storeInfo.storeTag + "#"
+        tv_store_detail_daka_number.text = content.storeInfo.visitedCount.toString()+"次打卡"
+        tv_store_detail_location.text = content.storeInfo.storeName
+        tv_store_detail_renjun.text = "人均：\$"+ content.storeInfo.avgPrice +"人"
+        tv_store_detail_yinye.text = "营业中 | "+ content.storeInfo.storeHours
+        tv_store_detail_distance.text = content.storeInfo.storeDistance.toString() + "米"
+
+        setReviewList(content.reviewInfos)
+        closeProgressDialog()
+    }
+    //设置攻略列表
+    private fun setReviewList(reviewInfos: List<ReviewInfo>) {
+        tv_store_detail_daren_number.text = "达人微攻略（"+reviewInfos.size+"）"
+
+        recylerView.layoutManager = object : LinearLayoutManager(this) {
+            override fun canScrollVertically(): Boolean {
+                return false
+            }
+        }
+
+
+        var list: MutableList<IHomeType> = ArrayList()
+        list.addAll(reviewInfos)
+        var homeAdapter = HomeAdapter(list)
+        recylerView.adapter = homeAdapter
+        recylerView.isFocusable = false
 
     }
 
@@ -141,42 +193,8 @@ class AStoreDetail : ABase() {
                 return false
             }
         }
-//
-//        var adapter = object : CommonAdapter<String>(MyApplication.context, R.layout.item_home_raiders, imageList.toMutableList()) {
-//            override fun convert(holder: ViewHolder?, t: String?, position: Int) {
-//                val view = holder!!.getView<ImageView>(R.id.iv_raiders_head)
-//
-//                ShowImage.showCircle(MyApplication.context,imageList[position],view)
-//
-//
-//            }
-//        }
-//        recylerView.adapter = adapter
 
-        var eHome = EHome(3, "")
-        var eHome2 = EHome(3, "")
-        var eHome6 = EHome(3, "")
-        var eHome3 = EHome(3, "")
-        var eHome4 = EHome(3, "")
-        var eHome5 = EHome(3, "")
-        var eHome7 = EHome(3, "")
 
-        var list: MutableList<EHome> = ArrayList()
-        list.add(eHome)
-        list.add(eHome2)
-        list.add(eHome6)
-        list.add(eHome3)
-        list.add(eHome4)
-        list.add(eHome5)
-        list.add(eHome7)
-        var homes: LHome.Home = LHome.Home()
-        homes.setList(list)
-        var homeAdapter = HomeAdapter(list)
-
-        homeAdapter.setData(list)
-
-        recylerView.adapter = homeAdapter
-        recylerView.isFocusable = false
 
         item_detail_container.isFillViewport = true
         item_detail_container.smoothScrollBy(0, 0)
@@ -184,10 +202,10 @@ class AStoreDetail : ABase() {
     }
 
     //设置标题居中
-    private fun setTitleCenter(toolbar: Toolbar) {
+    private fun setTitleCenter(toolbar: Toolbar,title : String) {
         titleText.setTextColor(ContextCompat.getColor(applicationContext, R.color.white))
 //        titleText.setText(R.string.brvah_app_name)
-        titleText.text = "好乐迪KTV"
+        titleText.text = title
         titleText.textSize = 18f
         titleText.gravity = Gravity.CENTER
         titleText.visibility = View.GONE

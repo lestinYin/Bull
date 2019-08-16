@@ -17,6 +17,11 @@ class Constants private constructor() {
         val USER_INFO: String = "user_info"
 
         val TOKEN : String = "token"
+
+        val IP : String = "103.193.190.118"
+
+        val USER_EXIST_STATE : String = "199"
+        val SUCCESS : String = "200"
     }
 
 }

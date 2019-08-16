@@ -96,11 +96,38 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+    <!--首页黑色14sp字体-->
+    <style name="text_333333">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/color_333333</item>
+    </style>
+    <!--黑色14sp字体-->
+    <style name="text_666666">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/color_666666</item>
+    </style>
+
     <style name="divider_EBEBEB">
         <item name="android:layout_height">@dimen/dp_1</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:background">#DFDFDF</item>
     </style>
 
-
+    <style name="dialogNeed" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.6</item>
+    </style>
+    <!--渐变动画-->
+    <style name="alphaAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/fade_in</item>
+        <item name="android:windowExitAnimation">@anim/fade_out</item>
+    </style>
 </resources>

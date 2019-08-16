@@ -1,4 +1,4 @@
-package com.future.taurus.ui.home.adapter;
+package com.lestin.yin.widget;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
-import com.future.taurus.R;
+import com.lestin.yin.R;
 
 import java.util.List;
 

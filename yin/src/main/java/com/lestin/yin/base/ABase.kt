@@ -9,16 +9,20 @@ import android.support.compat.BuildConfig
 import android.support.v7.app.AppCompatActivity
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import com.future.taurus.api.model.MainModel
 
 import com.lestin.yin.Constants
 import com.lestin.yin.MyApplication
 import com.lestin.yin.R
+import com.lestin.yin.entity.ECode
 import com.lestin.yin.entity.EUser
+import com.lestin.yin.entity.UserInfo
 import com.lestin.yin.utils.DialogUtil
 import com.lestin.yin.utils.jsonUtils.SPManager
 import com.lestin.yin.utils.statubar.ImmersionBar
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
+import org.greenrobot.eventbus.EventBus
 
 
 /**
@@ -35,12 +39,12 @@ abstract class ABase : AppCompatActivity() {
 
     private var compositeDisposable = CompositeDisposable()
 
-    var spManager : SPManager = SPManager(MyApplication.context)
-    var mUser : EUser? = null
+    var spManager: SPManager = SPManager(MyApplication.context)
+    var mUser: UserInfo? = null
 
-//    val mainModel: MainModel by lazy {
-//        MainModel()
-//    }
+    val mainModel: MainModel by lazy {
+        MainModel()
+    }
     var mImmersionBar: ImmersionBar? = null
     /**
      * 多种状态的 View 的切换
@@ -60,13 +64,20 @@ abstract class ABase : AppCompatActivity() {
             }
         }
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(layoutId())
+        val layoutId = layoutId()
+        setContentView(layoutId)
         mImmersionBar = ImmersionBar.with(this)
         mImmersionBar!!.statusBarColor(R.color.colorPrimary)
+        mUser = spManager.get(Constants.USER_INFO, UserInfo::class.java)
 
-        mUser =  spManager.get(Constants.USER_INFO, EUser::class.java)
+        try {
+            EventBus.getDefault().register(this)
+        } catch (e: Exception) {
+        }
+
 
         val exitFilter = IntentFilter()
         exitFilter.addAction(ACTION_FINISH)
@@ -133,6 +144,8 @@ abstract class ABase : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
 //        MyApplication.getRefWatcher(this)?.watch(this)
+        EventBus.getDefault().unregister(this)
+
         if (mImmersionBar != null)
             mImmersionBar!!.destroy() //必须调用该方法，防止内存泄漏，不调用该方法，如果界面bar发生改变，在不关闭app的情况下，退出此界面再进入将记忆最后一次bar改变的状态
 

@@ -10,6 +10,7 @@ import com.future.taurus.ui.home.entity.EHome
 import com.future.taurus.ui.home.provider.LineProvider
 import com.future.taurus.ui.home.provider.RaidersProvider
 import com.lestin.yin.base.AdapterInterface
+import com.lestin.yin.entity.IHomeType
 
 /**
  *
@@ -22,18 +23,18 @@ import com.lestin.yin.base.AdapterInterface
  * @Version:        1.0
  */
 @Suppress("DEPRECATED_IDENTITY_EQUALS")
-class HomeAdapter : MultipleItemRvAdapter<EHome, BaseViewHolder>, AdapterInterface<EHome> {
+class HomeAdapter : MultipleItemRvAdapter<IHomeType, BaseViewHolder> {
     companion object {
-        val TYPE_TEXT = 1
-        val TYPE_IMG = 2
-        val TYPE_TEXT_IMG = 3
+        val TYPE_TEXT = 100
+        val TYPE_IMG = 200
+        val TYPE_TEXT_IMG = 300
     }
 
-    constructor(data: MutableList<EHome>?) : super(data) {
+    constructor(data: MutableList<IHomeType>?) : super(data) {
+        finishInitialize()
     }
 
     override fun registerItemProvider() {
-
         this.openLoadAnimation(BaseQuickAdapter.SCALEIN)
         mProviderDelegate.registerProvider(StoreProvider())
         mProviderDelegate.registerProvider(LineProvider())
@@ -41,31 +42,19 @@ class HomeAdapter : MultipleItemRvAdapter<EHome, BaseViewHolder>, AdapterInterfa
 
     }
 
-    override fun setData(data: MutableList<EHome>?) {
 
-        super.setNewData(data)
-        finishInitialize()
-    }
-
-    override fun addData(data: MutableList<EHome>?) {
-        if (data != null) {
-            super.addData(data)
-        }
-    }
-
-    override fun getViewType(t: EHome?): Int {
-        if (t!!.code === 1) {
+    override fun getViewType(t: IHomeType?): Int {
+        if (t!!.getType() === 100) {
             return TYPE_TEXT
-        } else if (t!!.code === 2) {
+        } else if (t!!.getType() === 200) {
             return TYPE_IMG
-        } else if (t!!.code === 3) {
+        } else if (t!!.getType() === 300) {
             return TYPE_TEXT_IMG
         }
         return 0
     }
 
-    override fun noData() {
-    }
+
 
 
 }

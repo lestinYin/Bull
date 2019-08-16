@@ -2,6 +2,7 @@ package com.lestin.yin.utils.image;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.widget.ImageView;
 
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -10,6 +11,7 @@ import com.lestin.yin.R;
 import com.lestin.yin.widget.photoview.PhotoView;
 
 import java.io.ByteArrayOutputStream;
+import java.util.Random;
 
 
 /**
@@ -23,6 +25,7 @@ import java.io.ByteArrayOutputStream;
 public class ShowImage {
 
     public static void showPhotoView(Context context, String url, PhotoView mImageView) {
+
         GlideApp.with(context).asBitmap()
                 .load(url)
                 .centerInside()//等比例缩放在正中间
@@ -78,5 +81,10 @@ public class ShowImage {
                 .transform(new RoundedCorners(5))
                 .into(imageView);
 //        transform(new CenterCrop(context), new GlideRoundTransform(context))
+    }
+    private static int getColor() {
+        Random random = new Random();
+        int color = Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));
+        return color;
     }
 }

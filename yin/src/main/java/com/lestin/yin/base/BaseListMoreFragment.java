@@ -1,6 +1,5 @@
 package com.lestin.yin.base;
 
-import android.app.Application;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -14,7 +13,6 @@ import com.lestin.yin.MyApplication;
 import com.lestin.yin.R;
 import com.lestin.yin.network.RequestHandler;
 import com.lestin.yin.utils.DeviceUtil;
-import com.lestin.yin.widget.LoadMoreWrapper;
 import com.lestin.yin.widget.statelayout.PrimaryStateLayout;
 import com.lestin.yin.widget.statelayout.ShowStateOption;
 
@@ -53,7 +51,7 @@ public abstract class BaseListMoreFragment<E extends DataMode<T>, T> extends Bas
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         state = view.findViewById(R.id.stateFullLayouts);
-        swipeRefresh = view.findViewById(R.id.mySwipeRefreshLayout);
+        swipeRefresh = view.findViewById(R.id.swipeRefreshLayout);
         mRecyclerView = view.findViewById(R.id.recylerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(MyApplication.getContext()));
         mAdapter = getAdapter();

@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import com.future.taurus.api.model.MainModel
 import com.gyf.barlibrary.ImmersionBar
 import com.lestin.yin.Constants
 import com.lestin.yin.MyApplication
@@ -18,6 +19,7 @@ import com.lestin.yin.utils.DialogUtil
 import com.lestin.yin.utils.jsonUtils.SPManager
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
+import org.greenrobot.eventbus.EventBus
 
 
 /**
@@ -36,25 +38,40 @@ abstract class FBase : Fragment() {
 
     private var mDialogUtil: DialogUtil? = null
 
-    var spManager : SPManager = SPManager(MyApplication.context)
-    var mUser : EUser? = null
+    var spManager: SPManager = SPManager(MyApplication.context)
+    var mUser: EUser? = null
 
-//    val mainModel: MainModel by lazy {
-//        MainModel()
-//    }
+    val mainModel: MainModel by lazy {
+        MainModel()
+    }
     /**
      * 多种状态的 View 的切换
      */
 //    protected var mLayoutStatusView: MultipleStatusView? = null
     var mImmersionBar: ImmersionBar? = null
 
+
+    var rootView: View? = null
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater?.inflate(layoutId(),null)
+//        if (rootView == null) {
+//            rootView = inflater!!.inflate(layoutId(), null)
+//        } else {
+//            var parent: ViewGroup = rootView!!.parent as ViewGroup
+//            if (parent != null) {
+//                parent.removeView(rootView)
+//            }
+//        }
+        return inflater?.inflate(layoutId(), null)
+//        return rootView
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mUser =  spManager.get(Constants.USER_INFO, EUser::class.java)
+        mUser = spManager.get(Constants.USER_INFO, EUser::class.java)
+        try {
+            EventBus.getDefault().register(this)
+        } catch (e: Exception) {
+        }
 
         initView()
         initData()
@@ -63,6 +80,7 @@ abstract class FBase : Fragment() {
 
 
     }
+
 
     private fun initListener() {
 //        mLayoutStatusView?.setOnClickListener(mRetryClickListener)
@@ -115,6 +133,7 @@ abstract class FBase : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
 //        MyApplication.getRefWatcher(this)?.watch(this)
+        EventBus.getDefault().unregister(this)
 
         if (!compositeDisposable.isDisposed) {
             compositeDisposable.clear()

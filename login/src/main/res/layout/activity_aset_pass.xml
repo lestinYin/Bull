@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activity.ASetPass">
     <ImageView
+        android:id="@+id/iv_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp_16"
@@ -32,6 +33,7 @@
         android:layout_below="@id/tv_set_pass_info"
         android:layout_marginLeft="@dimen/dp_30"
         android:layout_marginTop="@dimen/dp_5"
+        android:visibility="gone"
         />
     <TextView
         android:id="@+id/tv_tishi_message"
@@ -52,6 +54,7 @@
         android:layout_below="@id/tv_tishi_message"
         android:layout_marginRight="@dimen/dp_30"
         android:background="@null"
+        android:inputType="textPassword"
         android:layout_marginTop="27dp"
         android:hint="@string/input_pass_hint"
         android:textColor="@color/color_303f51"

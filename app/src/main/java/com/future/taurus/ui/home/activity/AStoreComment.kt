@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.text.TextUtils
 import android.view.*
 import android.view.animation.TranslateAnimation
@@ -13,7 +14,9 @@ import android.widget.TextView
 import com.future.taurus.R
 import com.future.taurus.ui.home.adapter.StoreCommentAdapter
 import com.future.taurus.ui.home.entity.EHome
+import com.lestin.yin.Constants
 import com.lestin.yin.base.ABase
+import com.lestin.yin.entity.StoreComentListContent
 import com.lestin.yin.utils.ToastUtils
 import kotlinx.android.synthetic.main.activity_astore_comment.*
 import kotlinx.android.synthetic.main.dialog_store_comment.*
@@ -30,10 +33,13 @@ class AStoreComment : ABase(), DialogInterface.OnDismissListener {
     private var mDialogWindow: Window? = null
     private var editComment: EditText? = null
     private var tvCommint: TextView? = null
+    private var page : Int = 1
+    private var storeId : String = ""
 
 
     override fun initView() {
         mImmersionBar!!.statusBarColor(R.color.transparent).init()
+        storeId = intent.getStringExtra("id")
         rv_store_comment.layoutManager = LinearLayoutManager(this)
 
     }
@@ -41,28 +47,25 @@ class AStoreComment : ABase(), DialogInterface.OnDismissListener {
     override fun layoutId(): Int = R.layout.activity_astore_comment
 
     override fun initData() {
-//        rl_store_comment_root.setBackgroundColor(R.color.transparent)
+        getStoreCommentList()
 
-        var eHome = EHome(1, "")
-        var eHome2 = EHome(1, "")
-        var eHome6 = EHome(1, "")
-        var eHome3 = EHome(2, "")
-        var eHome4 = EHome(3, "")
-        var eHome5 = EHome(3, "")
-        var eHome7 = EHome(3, "")
+    }
+    //获取评论列表
+    @SuppressLint("CheckResult")
+    private fun getStoreCommentList() {
+        mainModel.getStoreComentList(storeId, page.toString(),"10").subscribe { result ->
+            if (Constants.SUCCESS.equals(result.code.toString())) {
+                fillData(result.content)
 
-        var list: MutableList<EHome> = ArrayList()
-        list.add(eHome)
-        list.add(eHome2)
-        list.add(eHome6)
-        list.add(eHome3)
-        list.add(eHome4)
-        list.add(eHome5)
-        list.add(eHome7)
+            }
+        }
 
-        var adapter = StoreCommentAdapter(list)
+    }
+    //填充数据
+    private fun fillData(content: StoreComentListContent) {
+        tv_store_comment_number.text  = content.storeComments.size.toString() + "  评论"
+        var adapter = StoreCommentAdapter(content.storeComments)
         rv_store_comment.adapter = adapter
-
     }
 
     override fun start() {
@@ -81,12 +84,26 @@ class AStoreComment : ABase(), DialogInterface.OnDismissListener {
             ToastUtils.showShort("评论不能为空")
             return
         }
-        mAlertDialog!!.dismiss()
+        commitComment(commentText)
+
+    }
+    //提交评论
+    @SuppressLint("CheckResult")
+    private fun commitComment(commentText: String) {
+        mainModel.commitStoreComment(storeId, commentText).subscribe { result ->
+            if (Constants.SUCCESS.equals(result.code.toString())) {
+                getStoreCommentList()
+                ToastUtils.showShort("评论成功")
+                mAlertDialog!!.dismiss()
+            } else {
+                ToastUtils.showShort("评论失败 请重试")
+            }
+        }
+
     }
 
     //显示评论窗口
     private fun showEditComment() {
-
         //弹出Dialog
         val builder = AlertDialog.Builder(this, R.style.dialogNeed)
         mAlertDialog = builder.create()
@@ -118,7 +135,7 @@ class AStoreComment : ABase(), DialogInterface.OnDismissListener {
 
     override fun onDismiss(p0: DialogInterface?) {
 //        closeKeyBord(editComment!!,this)
-        //显示软键盘
+        //关闭软键盘
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
     }
 

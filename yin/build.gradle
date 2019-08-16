@@ -4,6 +4,10 @@ apply plugin: 'kotlin-android'
 //减少findviewbyid
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'com.alibaba.arouter'
+
+//apply plugin: 'kotlin-kapt'
+
 
 android {
     compileSdkVersion 26
@@ -17,6 +21,19 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+//        kapt {
+//            arguments {
+//                arg("AROUTER_MODULE_NAME", project.getName())
+//            }
+//        }
+        defaultConfig {
+            javaCompileOptions {
+                annotationProcessorOptions {
+                    arguments = [AROUTER_MODULE_NAME: project.getName()]
+                }
+            }
+        }
 
     }
 
@@ -57,12 +74,29 @@ dependencies {
     //状态栏
     implementation 'com.gyf.barlibrary:barlibrary:2.3.0'
     //glide
-    implementation 'com.github.bumptech.glide:glide:4.3.1'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.3.1'
+    implementation ("com.github.bumptech.glide:glide:4.9.0") {
+        exclude group: 'com.android.support'
+    }
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
     //eventbus
     api 'org.greenrobot:eventbus:3.1.1'
     //recyclerView common Adapter
-    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.45'
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46'
     //zhy commonAdapter
     api 'com.zhy:base-rvadapter:3.0.3'
+    //facebook test
+    api 'com.facebook.stetho:stetho:1.5.0'
+
+
+    // 替换成最新版本, 需要注意的是api
+    // 要与compiler匹配使用，均使用最新版可以保证兼容
+    api ("com.alibaba:arouter-api:1.5.0") {
+        exclude module: 'support-v4'
+    }
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+    //下拉刷新 https://github.com/scwang90/SmartRefreshLayout
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
+
+
+
 }

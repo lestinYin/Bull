@@ -1,122 +1,282 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:fitsSystemWindows="true"
-    tools:context="com.future.taurus.ui.home.AHome">
-
-    <TextView
-        android:id="@+id/tv_theme"
-        style="@style/tab_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="@dimen/dp_15"
-        android:layout_marginTop="@dimen/dp_20"
-        android:drawablePadding="@dimen/dp_7"
-        android:drawableRight="@mipmap/home_arrow_down"
-        android:text="城市夜8点TOP5"
-        android:textColor="#353B50"
-        android:textSize="18sp" />
-
-    <ImageView
-        android:layout_width="@dimen/dp_20"
-        android:layout_height="@dimen/dp_20"
-        android:layout_marginLeft="@dimen/dp_15"
-        android:layout_marginTop="@dimen/dp_20"
-        android:background="@mipmap/home_nav_my"/>
-
-    <ImageView
-        android:layout_width="@dimen/dp_20"
-        android:layout_height="@dimen/dp_20"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="@dimen/dp_15"
-        android:layout_marginTop="@dimen/dp_20"
-        android:background="@mipmap/home_nav_message" />
+    android:background="@color/home_bg"
+    tools:context=".ui.home.activity.AHome"
+    android:overScrollMode="never"
+    >
 
     <RelativeLayout
-        android:id="@+id/rl_time_message"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_25"
-        android:layout_below="@id/tv_theme"
-        android:layout_marginTop="@dimen/dp_20"
-        android:background="#F2F2F2">
+        android:layout_height="match_parent"
+
+        >
 
         <TextView
+            android:id="@+id/tv_home_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dp_15"
-            android:drawableLeft="@mipmap/tongzhi"
-            android:drawablePadding="@dimen/dp_11"
-            android:text="莎莎KTV目前离您最近，有10条玩法攻略"
-            android:textColor="#767676"
-            android:textSize="12sp" />
+            android:layout_marginTop="@dimen/dp_32"
+            android:drawableLeft="@mipmap/home_location"
+            android:drawableRight="@mipmap/home_location_right_arrow"
+            android:drawablePadding="@dimen/dp_5"
+            android:text="Ho Chi Minh City"
+            android:textColor="@color/color_333333"
+            android:textSize="18sp" />
 
-        <ImageView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/dp_32"
             android:layout_marginRight="@dimen/dp_15"
-            android:background="@mipmap/home_tongzhi_right_arrow" />
-    </RelativeLayout>
+            android:drawableLeft="@mipmap/home_change_language"
+            android:drawablePadding="@dimen/dp_2"
+            android:text="EN"
+            android:textColor="@color/color_333333"
+            android:textSize="18sp" />
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/lay_tabs"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_30"
-        android:layout_below="@id/rl_time_message"
-        android:layout_marginTop="@dimen/dp_7"
-        android:background="@color/white"
-        app:tabBackground="@color/white"
-        app:tabIndicatorColor="@color/colorPrimary"
-        app:tabIndicatorHeight="@dimen/dp_3"
-        app:tabTextColor="@color/color_777777"
-        app:tabSelectedTextColor="@color/colorPrimary"
-        />
-    <!--app:tabSelectedTextColor="@color/color_666666"-->
-    <!--app:tabTextAppearance="@style/tab_text"-->
-    <RelativeLayout
-        android:id="@+id/rl_daka"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_50"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimary"
-        >
+        <RelativeLayout
+            android:id="@+id/rl_home_head_img"
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="@dimen/dp_80"
+            android:layout_below="@id/tv_home_location"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_29"
+            android:background="@drawable/my_white_redis">
+
+            <ImageView
+                android:id="@+id/iv_home_head_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_2" />
+        </RelativeLayout>
+
         <TextView
-            android:id="@+id/tv_daka"
+            android:id="@+id/tv_home_login_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/daka"
-            android:textColor="@color/white"
+            android:layout_alignTop="@+id/rl_home_head_img"
+            android:layout_marginLeft="@dimen/dp_12"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_toRightOf="@id/rl_home_head_img"
+            android:text="Login/Sign up"
+            android:textColor="#333333"
             android:textSize="18sp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/dp_3"
+
             />
+
+        <TextView
+            android:id="@+id/tv_home_login_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/rl_home_head_img"
+            android:layout_marginLeft="@dimen/dp_12"
+            android:layout_marginBottom="@dimen/dp_12"
+            android:layout_toRightOf="@id/rl_home_head_img"
+            android:text="Enter my account"
+            android:textColor="@color/color_999999"
+            android:textSize="12sp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/daka1"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            android:layout_below="@id/tv_daka"
-            android:layout_centerHorizontal="true"
-            android:drawableRight="@mipmap/n_yellow"
-            android:drawablePadding="@dimen/dp_6"
-            />
+            android:layout_alignBaseline="@id/tv_home_login_description"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_20"
+            android:drawableTop="@mipmap/home_order_manage"
+            android:drawablePadding="@dimen/dp_2"
+            android:gravity="center_horizontal"
+            android:text="订单"
+            android:textColor="@color/color_333333"
+            android:textSize="12sp" />
 
+        <RelativeLayout
+            android:id="@+id/rl_home_scan"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_117"
+            android:layout_below="@id/rl_home_head_img"
+            android:layout_marginLeft="@dimen/dp_11"
+            android:layout_marginTop="@dimen/dp_17"
+            android:layout_marginRight="@dimen/dp_11"
+            android:background="@drawable/shape_home_store_bg"
+            android:elevation="@dimen/dp_5">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_19"
+                android:layout_marginTop="@dimen/dp_16"
+                android:drawableTop="@mipmap/home_scan"
+                android:drawablePadding="@dimen/dp_15"
+                android:gravity="center_horizontal"
+                android:text="Scan"
+                android:textColor="@color/color_333333"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp_12"
+                android:drawableTop="@mipmap/home_pay_code"
+                android:drawablePadding="@dimen/dp_12"
+                android:gravity="center_horizontal"
+                android:text="Payment \nCode"
+                android:textColor="@color/color_333333"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/dp_12"
+                android:layout_marginRight="@dimen/dp_12"
+                android:drawableTop="@mipmap/home_wallet"
+                android:drawablePadding="@dimen/dp_12"
+                android:gravity="center_horizontal"
+                android:text="Wallet"
+                android:textColor="@color/color_333333"
+                android:textSize="15sp" />
+        </RelativeLayout>
+        <LinearLayout
+            android:id="@+id/ll_home_page_one"
+            android:layout_below="@id/rl_home_scan"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_160"
+            android:layout_marginLeft="@dimen/dp_11"
+            android:layout_marginTop="@dimen/dp_17"
+            android:layout_marginRight="@dimen/dp_11"
+            android:background="@mipmap/home_page_one"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delivery"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:layout_marginLeft="@dimen/dp_28"
+                android:layout_marginTop="@dimen/dp_20"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Food+Coffee+Drink"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:layout_marginLeft="@dimen/dp_28"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All xxx Places "
+                android:textColor="#ff000000"
+                android:textSize="15sp"
+                android:background="@drawable/shape_home_page_yellow_bg"
+                android:layout_marginLeft="@dimen/dp_28"
+                android:paddingLeft="@dimen/dp_12"
+                android:paddingRight="@dimen/dp_12"
+                android:paddingTop="@dimen/dp_3"
+                android:paddingBottom="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_25"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_home_page_two"
+            android:layout_below="@id/ll_home_page_one"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_160"
+            android:layout_marginLeft="@dimen/dp_11"
+            android:layout_marginRight="@dimen/dp_11"
+            android:background="@mipmap/home_page_two"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/dp_2"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Top"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:layout_marginLeft="@dimen/dp_28"
+                android:layout_marginTop="@dimen/dp_20"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Topic+TIps"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:layout_marginLeft="@dimen/dp_28"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All xxx Places "
+                android:textColor="#ff000000"
+                android:textSize="15sp"
+                android:background="@drawable/shape_home_page_yellow_bg"
+                android:layout_marginLeft="@dimen/dp_28"
+                android:paddingLeft="@dimen/dp_12"
+                android:paddingRight="@dimen/dp_12"
+                android:paddingTop="@dimen/dp_3"
+                android:paddingBottom="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_25"
+                android:drawableRight="@mipmap/home_location_right_arrow"
+                />
+        </LinearLayout>
+        <RelativeLayout
+            android:id="@+id/ll_home_page_three"
+            android:layout_below="@id/ll_home_page_two"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_160"
+            android:layout_marginLeft="@dimen/dp_11"
+            android:layout_marginRight="@dimen/dp_11"
+            android:background="@drawable/shape_home_page_three_bg"
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/dp_38"
+            android:layout_marginTop="@dimen/dp_12"
+            android:translationZ="@dimen/dp_6"
+            >
+            <TextView
+                android:id="@+id/tv_home_page_three_des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Stay tuned"
+                android:textColor="#ff000000"
+                android:textSize="25sp"
+                android:layout_marginTop="@dimen/dp_44"
+                android:layout_marginLeft="@dimen/dp_17"
+                />
+            <TextView
+                android:id="@+id/tv_home_page_three_detail"
+                android:layout_width="141dp"
+                android:layout_height="21dp"
+                android:text="Movie+Hotel+More"
+                android:textColor="#ff000000"
+                android:textSize="15sp"
+                android:layout_marginLeft="@dimen/dp_17"
+                android:layout_below="@id/tv_home_page_three_des"
+                android:layout_marginTop="@dimen/dp_5"
+                />
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_home_page_three_icon"
+                android:layout_toRightOf="@id/tv_home_page_three_detail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_30"
+                android:layout_marginRight="@dimen/dp_20"
+                android:overScrollMode="never"
+                android:nestedScrollingEnabled="false"
+                />
+        </RelativeLayout>
     </RelativeLayout>
-     <android.support.v4.view.ViewPager
-        android:id="@+id/vp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/lay_tabs"
-        android:layout_above="@id/rl_daka"
-        />
 
-
-</RelativeLayout>
+</android.support.v4.widget.NestedScrollView>

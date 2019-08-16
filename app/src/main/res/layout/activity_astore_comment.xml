@@ -81,7 +81,8 @@
             android:overScrollMode="never"
             android:layout_below="@id/rl_store_comment_number"
             android:nestedScrollingEnabled="false"
-            android:layout_marginBottom="@dimen/dp_44"
+            android:layout_marginBottom="@dimen/dp_54"
+
             />
         <RelativeLayout
             android:id="@+id/rv_comment_bottome"

@@ -13,5 +13,6 @@ import java.io.Serializable
  * @chang time
  * @class describe
  */
-data class ECode(val code: Int, val status : String, val content: UserInfo) : Serializable
-    data class UserInfo(val faceUrl: String,val name: String,val phone: String,val email: String): Serializable
+data class ECode(val code: Int, val status : String, val content: Contents) : Serializable
+    data class Contents(val token:String,val userInfo: UserInfo)
+        data class UserInfo(val name: String,val phone: String,val likeCount: Int,val clockCount: Int,val shareCount: Int,val email: String): Serializable

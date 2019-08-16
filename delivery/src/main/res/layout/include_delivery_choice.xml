@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginLeft="@dimen/dp_16"
+    android:layout_marginTop="@dimen/dp_12"
+
+    >
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginRight="@dimen/dp_24"
+        >
+
+        <RadioButton
+            android:id="@+id/rb_zonghe"
+            style="@style/radio_button"
+            android:drawableRight="@drawable/selector_radio_drawable"
+            android:gravity="center"
+            android:text="综合排序"
+
+            android:padding="@dimen/dp_4"
+            />
+
+        <RadioButton
+            android:id="@+id/rb_categories"
+            style="@style/radio_button"
+            android:drawableRight="@drawable/selector_radio_drawable"
+            android:layout_marginLeft="@dimen/dp_38"
+            android:padding="@dimen/dp_4"
+            android:text="品类" />
+
+        <RadioButton
+            android:id="@+id/rb_distance"
+            style="@style/radio_button"
+            android:drawableRight="@drawable/selector_radio_drawable"
+            android:layout_marginLeft="@dimen/dp_38"
+            android:padding="@dimen/dp_4"
+            android:text="距离" />
+
+        <!--<RadioButton-->
+            <!--android:id="@+id/rb_shaixuan"-->
+            <!--style="@style/radio_button"-->
+            <!--android:drawableRight="@drawable/selector_radio_drawable"-->
+            <!--android:layout_marginLeft="100dp"-->
+            <!--android:text="筛选" />-->
+
+    </RadioGroup>
+</LinearLayout>

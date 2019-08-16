@@ -1,19 +1,35 @@
-apply plugin: 'com.android.application'
+//apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.alibaba.arouter'
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.3"
 
 
     defaultConfig {
-        applicationId "com.jinniu.login"
+//        applicationId "com.jinniu.login"
         minSdkVersion 24
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+//        kapt {
+//            arguments {
+//                arg("AROUTER_MODULE_NAME", project.getName())
+//            }
+//        }
+        defaultConfig {
+            javaCompileOptions {
+                annotationProcessorOptions {
+                    arguments = [AROUTER_MODULE_NAME: project.getName()]
+                }
+            }
+        }
 
     }
 
@@ -40,4 +56,15 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     //引用公共包
     implementation project(path: ':yin')
+    annotationProcessor project(':app')
+
+//    kapt 'com.alibaba:arouter-compiler:1.2.2'
+//    compile ("com.alibaba:arouter-api:1.5.0") {
+//        exclude module: 'support-v4'
+//    }
+//    kapt "com.alibaba:arouter-register:1.0.2"
+    compile("com.alibaba:arouter-api:1.5.0") {
+        exclude module: 'support-v4'
+    }
+    kapt 'com.alibaba:arouter-compiler:1.2.2'
 }

@@ -5,6 +5,7 @@ import com.chad.library.adapter.base.provider.BaseItemProvider
 import com.future.taurus.R
 import com.future.taurus.ui.home.adapter.HomeAdapter
 import com.future.taurus.ui.home.entity.EHome
+import com.lestin.yin.entity.IHomeType
 
 /**
  *
@@ -16,12 +17,12 @@ import com.future.taurus.ui.home.entity.EHome
  * @CreateDate:     2019-07-30 15:31
  * @Version:        1.0
  */
-class LineProvider : BaseItemProvider<EHome, BaseViewHolder>() {
+class LineProvider : BaseItemProvider<IHomeType, BaseViewHolder>() {
     override fun layout(): Int = R.layout.item_home_line
 
     override fun viewType(): Int = HomeAdapter.TYPE_IMG
 
-    override fun convert(helper: BaseViewHolder?, data: EHome?, position: Int) {
+    override fun convert(helper: BaseViewHolder?, data: IHomeType?, position: Int) {
 //        helper!!.setText(R.id.tv_home_store_title,"fdksalfdklsjakfldjsk")
     }
 }

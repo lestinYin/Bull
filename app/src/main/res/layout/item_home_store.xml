@@ -12,7 +12,7 @@
     <ImageView
         android:id="@+id/iv_store_img"
         android:layout_width="match_parent"
-        android:scaleType="centerCrop"
+        android:scaleType="fitXY"
         android:layout_height="@dimen/dp_130" />
 
     <RelativeLayout
@@ -40,13 +40,15 @@
             android:textSize="10sp" />
 
         <TextView
+            android:id="@+id/tv_home_store_tag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dp_10"
             android:layout_toRightOf="@id/tv_home_store_name"
             android:background="@drawable/shape_home_store_tag_bg"
-            android:padding="@dimen/dp_2"
+            android:paddingLeft="@dimen/dp_5"
+            android:paddingRight="@dimen/dp_5"
             android:textSize="8sp"
             android:text="全能玩乐达人" />
     </RelativeLayout>
@@ -115,6 +117,7 @@
         android:layout_toEndOf="@id/iv_head3"
          />
     <TextView
+        android:id="@+id/tv_home_store_review_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="52条"
@@ -139,6 +142,7 @@
         android:layout_marginRight="@dimen/dp_10"
         />
     <TextView
+        android:id="@+id/tv_home_store_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_home_store_title"

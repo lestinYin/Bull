@@ -15,4 +15,6 @@ object Event {
     //退出
     class Logout{}
 
+    //首页显示积分Dialog
+    class HomeShowDialog{}
 }

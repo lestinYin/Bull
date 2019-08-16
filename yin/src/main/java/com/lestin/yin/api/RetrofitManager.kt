@@ -3,6 +3,8 @@ package com.future.taurus.api
 import com.lestin.yin.Constants
 import com.lestin.yin.MyApplication
 import com.lestin.yin.api.ApiAuthnterceptor
+import com.lestin.yin.api.BaseUrlInterceptor
+import com.lestin.yin.api.utils.SafeHostnameVerifier
 import com.lestin.yin.utils.jsonUtils.SPManager
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
@@ -15,6 +17,7 @@ import com.lestin.yin.utils.NetworkUtil
 import com.lestin.yin.utils.Preference as Preference1
 import com.lestin.yin.api.utils.SslUtils
 import java.security.KeyStore
+import java.security.cert.CertificateFactory
 import java.util.*
 import javax.net.ssl.SSLSession
 import javax.net.ssl.TrustManagerFactory
@@ -33,9 +36,9 @@ object RetrofitManager{
 
 
 
-
-
-    val service: ApiService by lazy { getRetrofit()!!.create(ApiService::class.java)}
+    val serviceHome: ApiService by lazy {
+        getRetrofit(UriConstant.BASE_URL_HOME)!!.create(ApiService::class.java)
+    }
 
     private var token:String by Preference1("token","")
 
@@ -48,8 +51,8 @@ object RetrofitManager{
             val request: Request
             val modifiedUrl = originalRequest.url().newBuilder()
                     // Provide your custom parameter here
-                    .addQueryParameter("phoneSystem", "")
-                    .addQueryParameter("phoneModel", "")
+//                    .addQueryParameter("phoneSystem", "")
+//                    .addQueryParameter("phoneModel", "")
                     .build()
             request = originalRequest.newBuilder().url(modifiedUrl).build()
             chain.proceed(request)
@@ -66,9 +69,9 @@ object RetrofitManager{
             var tokens = if(spManager.get(Constants.TOKEN)==null){""}else{spManager.get(Constants.TOKEN).toString()}
             val requestBuilder = originalRequest.newBuilder()
                     // Provide your custom header here
-                    .header("token",tokens.replace("\"","") )
+                    .header("Authorization",tokens.replace("\"","") )
 //                    .header("token", "bdvmk5ksoq3bqere5qlg")
-                    .header("Origin", "test")
+//                    .header("Origin", "test")
                     .method(originalRequest.method(), originalRequest.body())
             val request = requestBuilder.build()
             chain.proceed(request)
@@ -106,7 +109,7 @@ object RetrofitManager{
         }
     }
 
-    private fun getRetrofit(): Retrofit? {
+    private fun getRetrofit(url:String): Retrofit? {
         if (retrofit == null) {
             synchronized(RetrofitManager::class.java) {
                 if (retrofit == null) {
@@ -121,18 +124,11 @@ object RetrofitManager{
                     val cache = Cache(cacheFile, 1024 * 1024 * 50) //50Mb 缓存的大小
 
                     //证书相关
-                    val sslContext = SslUtils.getSslContextForCertificateFile("api_ssl_debug.cer")
-
-                    val trustManagerFactory = TrustManagerFactory.getInstance(
-                            TrustManagerFactory.getDefaultAlgorithm())
-                    trustManagerFactory.init(null as KeyStore?)
-                    val trustManagers = trustManagerFactory.getTrustManagers()
-                    if (trustManagers.size != 1 || trustManagers[0] !is X509TrustManager) {
-                        throw IllegalStateException("Unexpected default trust managers:" + Arrays.toString(trustManagers))
-                    }
-                    val trustManager = trustManagers[0] as X509TrustManager
-
-
+                    val assetManager = MyApplication.context.assets
+                    val cf = CertificateFactory.getInstance("X.509")
+                    val caInput = assetManager.open("certificate.cer")
+                    //charles抓包需要添加的证书
+                    val caInputs = assetManager.open("charles_ssl_proxying_certificate.pem")
 
 
                     client = OkHttpClient.Builder()
@@ -140,18 +136,22 @@ object RetrofitManager{
                             .addInterceptor(addHeaderInterceptor()) // token过滤
 //                            .addInterceptor(addCacheInterceptor())
                             .addInterceptor(httpLoggingInterceptor) //日志,所有的请求响应度看到
+                            .addInterceptor(BaseUrlInterceptor()) //更改BaseUrl拦截器
 //                            .addInterceptor(apiAuthnterceptor)  //添加数据解密拦截
                             .cache(cache)  //添加缓存
                             .connectTimeout(60L, TimeUnit.SECONDS)
                             .readTimeout(60L, TimeUnit.SECONDS)
                             .writeTimeout(60L, TimeUnit.SECONDS)
-                            .sslSocketFactory(sslContext.socketFactory, trustManager) //设置证书
+//                            .sslSocketFactory(sslContext.socketFactory, trustManager) //设置证书
+                            .sslSocketFactory(SslUtils.getSSLSocketFactoryForOneWay(caInput)) //设置证书
+//                            .sslSocketFactory(SslUtils.getSSLSocketFactoryForOneWay(caInputs)) //设置charles抓包证书
+                            .hostnameVerifier(SafeHostnameVerifier())
                             .build()
                             //.hostnameVerifier((hostname, session) -> true)
 
                     // 获取retrofit的实例
                     retrofit = Retrofit.Builder()
-                            .baseUrl(UriConstant.BASE_URL)  //自己配置
+                            .baseUrl(url)  //自己配置
                             .client(client!!)
                             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                             .addConverterFactory(GsonConverterFactory.create())
@@ -161,6 +161,7 @@ object RetrofitManager{
         }
         return retrofit
     }
+
 
 
 }

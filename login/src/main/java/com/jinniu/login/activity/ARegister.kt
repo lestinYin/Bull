@@ -22,6 +22,12 @@ class ARegister : ABase() {
         tv_regist.setOnClickListener {
             duage()
         }
+        iv_back.setOnClickListener {
+            finish()
+        }
+        tv_regist_login.setOnClickListener {
+            finish()
+        }
 
 
     }

@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.future.taurus.api.model.MainModel;
 import com.gyf.barlibrary.ImmersionBar;
 import com.lestin.yin.MyApplication;
 import com.lestin.yin.R;
@@ -34,7 +35,7 @@ public abstract class BaseFragment extends Fragment {
     public SPManager spManager = new SPManager(MyApplication.getContext());
     public EUser mUser = null;
 
-//    public MainModel mainModel = new MainModel();
+    public MainModel mainModel = new MainModel();
     /**
      * 多种状态的 View 的切换
      */

@@ -145,7 +145,7 @@ object ViewUtil  {
      * @param context
      * @return
      */
-    internal fun getScreenHeight(context: Context): Int {
+    fun getScreenHeight(context: Context): Int {
         val manager = context
                 .getSystemService(Context.WINDOW_SERVICE) as WindowManager
         val display = manager.defaultDisplay

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/dp_30"
+    >
+    <include
+        android:id="@+id/include_title"
+        layout="@layout/item_delivery_home"/>
+
+    <RelativeLayout
+
+        android:layout_below="@id/include_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/dp__20"
+        android:layout_marginLeft="@dimen/dp_117"
+        android:layout_marginRight="@dimen/dp_15"
+        >
+        <include layout="@layout/include_store_list_pic"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            />
+        <include layout="@layout/include_store_list_pic"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            />
+        <include layout="@layout/include_store_list_pic"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
+            />
+
+
+    </RelativeLayout>
+</RelativeLayout>

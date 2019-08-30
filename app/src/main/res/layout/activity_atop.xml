@@ -5,9 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:fitsSystemWindows="true"
     tools:context="com.future.taurus.ui.home.ATop">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/home_bg"
 
+        />
     <TextView
         android:id="@+id/tv_theme"
         style="@style/tab_text"
@@ -15,63 +19,44 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="@dimen/dp_15"
-        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_34"
         android:drawablePadding="@dimen/dp_7"
-        android:drawableRight="@mipmap/home_arrow_down"
+        android:drawableRight="@mipmap/primary_arrow_down"
         android:text="城市夜8点TOP5"
-        android:textColor="#353B50"
+        android:textColor="@color/white"
         android:textSize="18sp" />
 
     <ImageView
-        android:id="@+id/iv_home_my"
-        android:layout_width="@dimen/dp_20"
-        android:layout_height="@dimen/dp_20"
+        android:id="@+id/iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp_15"
-        android:layout_marginTop="@dimen/dp_20"
-        android:background="@mipmap/home_nav_my"/>
+        android:layout_marginTop="@dimen/dp_34"
+        android:src="@mipmap/white_arrow_back"
+        android:paddingRight="@dimen/dp_10"
+        />
 
     <ImageView
-        android:layout_width="@dimen/dp_20"
-        android:layout_height="@dimen/dp_20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_marginRight="@dimen/dp_15"
-        android:layout_marginTop="@dimen/dp_20"
-        android:background="@mipmap/home_nav_message" />
+        android:layout_marginTop="@dimen/dp_34"
+        android:background="@mipmap/delivery_store_clock" />
 
     <RelativeLayout
-        android:id="@+id/rl_time_message"
+        android:layout_below="@id/iv_back"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_25"
-        android:layout_below="@id/tv_theme"
-        android:layout_marginTop="@dimen/dp_20"
-        android:background="#F2F2F2">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/dp_15"
-            android:drawableLeft="@mipmap/tongzhi"
-            android:drawablePadding="@dimen/dp_11"
-            android:text="莎莎KTV目前离您最近，有10条玩法攻略"
-            android:textColor="#767676"
-            android:textSize="12sp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/dp_15"
-            android:background="@mipmap/home_tongzhi_right_arrow" />
-    </RelativeLayout>
+        android:layout_marginTop="@dimen/dp_13"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_store_detail_bg"
+        >
 
     <android.support.design.widget.TabLayout
         android:id="@+id/lay_tabs"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_30"
-        android:layout_below="@id/rl_time_message"
-        android:layout_marginTop="@dimen/dp_7"
+        android:layout_marginTop="@dimen/dp_15"
         android:background="@color/white"
         app:tabBackground="@color/white"
         app:tabIndicatorColor="@color/colorPrimary"
@@ -81,43 +66,13 @@
         />
     <!--app:tabSelectedTextColor="@color/color_666666"-->
     <!--app:tabTextAppearance="@style/tab_text"-->
-    <RelativeLayout
-        android:id="@+id/rl_daka"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_50"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimary"
-        >
-        <TextView
-            android:id="@+id/tv_daka"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/daka"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/dp_3"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/daka1"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            android:layout_below="@id/tv_daka"
-            android:layout_centerHorizontal="true"
-            android:drawableRight="@mipmap/n_yellow"
-            android:drawablePadding="@dimen/dp_6"
-            />
 
-    </RelativeLayout>
      <android.support.v4.view.ViewPager
         android:id="@+id/vp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/lay_tabs"
-        android:layout_above="@id/rl_daka"
         />
-
+    </RelativeLayout>
 
 </RelativeLayout>

@@ -1,11 +1,9 @@
 package com.jinniu.delivery.adapter
 
-import android.os.Parcel
-import android.os.Parcelable
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.chad.library.adapter.base.MultipleItemRvAdapter
-import com.jinniu.delivery.provider.LineProvider
+import com.jinniu.delivery.provider.StoreListProvider
 import com.lestin.yin.entity.IHomeType
 
 /**
@@ -32,7 +30,7 @@ class DeliveryHomeAdapter : MultipleItemRvAdapter<IHomeType, BaseViewHolder> {
 
     override fun registerItemProvider() {
         this.openLoadAnimation(BaseQuickAdapter.SCALEIN)
-        mProviderDelegate.registerProvider(LineProvider())
+        mProviderDelegate.registerProvider(StoreListProvider())
 
     }
 

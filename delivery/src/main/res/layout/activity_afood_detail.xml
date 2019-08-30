@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/root_food_detail"
+    android:background="@color/transparent_five"
+    tools:context=".activity.AFoodDetail"
+    tools:ignore="MissingConstraints">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_color_white_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+
+        <ImageView
+            android:id="@+id/iv_food_pic"
+            android:layout_width="match_parent"
+            android:layout_height="271dp" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="72dp"
+            android:layout_height="25dp"
+            android:layout_below="@id/iv_food_pic"
+            android:paddingLeft="@dimen/dp_10"
+            android:text="襄县焖面"
+            android:textColor="#ff333333"
+            android:layout_marginTop="@dimen/dp_17"
+            android:textSize="18sp"
+
+            />
+
+        <TextView
+            android:id="@+id/tv_sold_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_title"
+            android:paddingLeft="@dimen/dp_10"
+            android:text="100 sold/month"
+            android:textColor="#ff999999"
+
+            android:textSize="12sp" />
+        <!--价格栏-->
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_sold_number"
+            android:layout_marginTop="15dp"
+            android:paddingLeft="@dimen/dp_10"
+            android:text="¥ 28"
+            android:textColor="#ffd10404"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_former_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/tv_price"
+            android:layout_marginLeft="@dimen/dp_9"
+            android:layout_toRightOf="@id/tv_price"
+            android:text="32"
+            android:textColor="@color/color_999999"
+            android:textSize="10sp"
+
+            />
+
+        <TextView
+            android:id="@+id/tv_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/tv_price"
+            android:layout_marginLeft="@dimen/dp_9"
+            android:layout_toRightOf="@id/tv_former_price"
+            android:text="limited offer first xx items"
+            android:textColor="@color/color_FF2A2A"
+            android:textSize="12sp"
+
+            />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_tag"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_13"
+            android:text="这是由南城乡忠粉发明的吃法，电烤拌饭米饭，菜心做搭配，再
+喝一口柠檬茶，过瘾舒服。"
+            android:textColor="#ff999999"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_ingredient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_content"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_54"
+            android:layout_marginTop="@dimen/dp_16"
+            android:text=" Ingredient :面，菜心"
+            android:textColor="#ff999999"
+            android:textSize="12sp" />
+
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

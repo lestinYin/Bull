@@ -1,13 +1,18 @@
 package com.future.taurus.ui.home
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.support.design.widget.TabLayout
+import android.support.v4.app.ActivityCompat
 import android.support.v4.app.Fragment
 import android.support.v7.app.AlertDialog
 import android.view.*
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
+import com.facebook.stetho.inspector.helper.IntegerFormatter
 import com.future.taurus.R
+import com.future.taurus.ui.home.activity.AChangeTheme
 import com.future.taurus.ui.home.fragment.FHome
 import com.lestin.yin.base.ABase
 import com.lestin.yin.utils.SetIndicater
@@ -32,6 +37,12 @@ class ATop : ABase() {
 
     override fun initView() {
         mImmersionBar!!.statusBarDarkFont(true).statusBarColor(R.color.transparent).init()
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            return
+        }
+
     }
 
     override fun initData() {
@@ -78,9 +89,13 @@ class ATop : ABase() {
             }
         })
 
-        iv_home_my.setOnClickListener {
+        iv_back.setOnClickListener {
             // 1. 应用内简单的跳转(通过URL跳转在'进阶用法'中)
             ARouter.getInstance().build("/my/setting").navigation()
+        }
+
+        tv_theme.setOnClickListener {
+            startActivityForResult(Intent(this,AChangeTheme::class.java),1)
         }
 
 
@@ -96,43 +111,34 @@ class ATop : ABase() {
         val builder = AlertDialog.Builder(this, R.style.dialogNeed)
         mAlertDialog = builder.create()
         mAlertDialog!!.show()
-        val dialogView = LayoutInflater.from(this).inflate(R.layout.popu_delivery_home_choice, null)
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_home_integral, null)
         dialogView.setOnClickListener {
             mAlertDialog!!.dismiss()
         }
 
         mAlertDialog!!.setContentView(dialogView)
         mDialogWindow = mAlertDialog!!.getWindow()
+
+        val defaultDisplay = windowManager.defaultDisplay
+
         mDialogWindow!!.setWindowAnimations(R.style.alphaAnimation)
         mDialogWindow!!.setGravity(Gravity.CENTER)
-        mDialogWindow!!.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+
+        mDialogWindow!!.setLayout((defaultDisplay.width * 0.8).toInt(), ViewGroup.LayoutParams.WRAP_CONTENT)
 
         mAlertDialog!!.setCanceledOnTouchOutside(true)
 
 
     }
-    //显示积分弹框
-//    @Subscribe(threadMode = ThreadMode.MAIN)
-//    fun showIntegral(event:Event.HomeShowDialog) {
-//        LogUtil.e("showshow---------------")
-//        showIntegralDialog()
-//    }
 
-
-    private var mExitTime: Long = 0
-    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (System.currentTimeMillis().minus(mExitTime) <= 2000) {
-//                var app = MyApplication()
-//                app.instance().exitApp()
-                sendBroadcast(Intent(ACTION_FINISH))
-            } else {
-                mExitTime = System.currentTimeMillis()
-                ToastUtils.showShort("再按一次退出程序")
-            }
-            return true
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 1 && resultCode == 2) {
+            tv_theme.text = data?.getStringExtra("theme")
         }
-        return super.onKeyDown(keyCode, event)
     }
+
+
+
 
 }

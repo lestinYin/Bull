@@ -1,10 +1,22 @@
 package com.lestin.yin.utils
 
+import android.app.Activity
+import android.content.Context
 import android.view.View
 import android.view.ViewGroup
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 import java.text.NumberFormat
+import android.view.animation.Animation
+import android.view.animation.AnimationSet
+import android.view.animation.AccelerateInterpolator
+import android.view.animation.TranslateAnimation
+import android.view.animation.LinearInterpolator
+import android.widget.LinearLayout
+
+
+
+
 
 
 /**
@@ -162,4 +174,7 @@ object Utils {
 
         return ""
     }
+
+
+
 }

@@ -1,8 +1,15 @@
 package com.jinniu.delivery.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
+import android.view.View
+import android.widget.Toast
+import com.chad.library.adapter.base.BaseQuickAdapter
 import com.jinniu.delivery.R
+import com.jinniu.delivery.activity.ADeliveryStoreDetail
+import com.jinniu.delivery.activity.AStoreList
 import com.jinniu.delivery.adapter.DeliveryHomeAdapter
 import com.lestin.yin.base.FBase
 import com.lestin.yin.entity.IHomeType
@@ -39,7 +46,9 @@ class FDeliveryHome : FBase() {
         var homeAdapter = DeliveryHomeAdapter(deliveryList)
         recylerView.adapter = homeAdapter
 
-
+        homeAdapter.onItemClickListener = BaseQuickAdapter.OnItemClickListener { adapter, view, position ->
+            startActivity(Intent(context,ADeliveryStoreDetail::class.java))
+        }
 
 
     }
@@ -49,7 +58,6 @@ class FDeliveryHome : FBase() {
         recylerView.layoutManager = LinearLayoutManager(context)
 
 //        recylerView.isNestedScrollingEnabled = false//禁止滑动
-
 
 
     }

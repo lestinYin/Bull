@@ -42,20 +42,20 @@
         android:layout_marginTop="@dimen/dp_99"
         android:background="@mipmap/deliverry_green_ye_right" />
 
-    <ImageView
-        android:id="@+id/iv_delivery_banner"
+    <com.jude.rollviewpager.RollPagerView
+        android:id="@+id/rollpager"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_146"
         android:layout_below="@id/rl_delivery_search"
         android:layout_marginLeft="@dimen/dp_27"
         android:layout_marginTop="@dimen/dp_15"
         android:layout_marginRight="@dimen/dp_27"
-        android:background="@mipmap/delivery_home_banner" />
-
+        />
     <TextView
+        android:id="@+id/tv_delivery_home_food"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/iv_delivery_banner"
+        android:layout_below="@id/rollpager"
         android:layout_marginLeft="@dimen/dp_24"
         android:layout_marginTop="@dimen/dp_24"
         android:drawableTop="@mipmap/delivery_food_icon"
@@ -68,7 +68,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/iv_delivery_banner"
+        android:layout_below="@id/rollpager"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/dp_24"
         android:drawableTop="@mipmap/delivery_drink_icon"
@@ -81,7 +81,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/iv_delivery_banner"
+        android:layout_below="@id/rollpager"
         android:layout_alignParentRight="true"
         android:layout_marginTop="@dimen/dp_24"
         android:layout_marginRight="@dimen/dp_24"

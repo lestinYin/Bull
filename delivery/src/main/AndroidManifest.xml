@@ -4,8 +4,19 @@
     package="com.jinniu.delivery">
 
     <application tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activity.ADeliveryHomeTest"></activity>
-        <!-- android:allowBackup="true" -->
+        <activity android:name=".activity.ASearchDelivery"
+            android:windowSoftInputMode="stateAlwaysVisible"
+            />
+        <activity android:name=".activity.AChoiceReceiptAdd" />
+        <activity
+            android:name=".activity.AFoodDetail"
+            android:theme="@style/myTransparent" />
+        <activity
+            android:name=".activity.AXuanGuiGe"
+            android:theme="@style/myTransparent" />
+        <activity android:name=".activity.ADeliveryStoreDetail" />
+        <activity android:name=".activity.AStoreList" />
+        <activity android:name=".activity.ADeliveryHomeTest" /> <!-- android:allowBackup="true" -->
         <!-- android:icon="@mipmap/ic_launcher" -->
         <!-- android:label="@string/app_name" -->
         <!-- android:roundIcon="@mipmap/ic_launcher_round" -->

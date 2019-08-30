@@ -23,7 +23,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.home.activity.AHome"></activity>
+        <activity android:name=".ui.home.activity.AChangeTheme"></activity>
+        <activity android:name=".ui.home.activity.AChoiceCity" />
+        <activity android:name=".ui.home.activity.AHome" />
         <activity
             android:name=".ui.home.activity.AStoreComment"
             android:theme="@style/myTransparent" />

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="home_list_sort">
+        <item>Most Popular</item>
+        <item>Nearest</item>
+        <item>ASAP</item>
+        <item>Highest Rated</item>
+        <item>Min Order-low to high</item>
+    </string-array>
+
+
+    <string-array name="tab_store_list">
+        <item>All</item>
+        <item>Nearby</item>
+        <item>Free Delivery</item>
+    </string-array>
+
+    <string-array name="tab_store_detail">
+        <item>Menu</item>
+        <item>Reviews (1345)</item>
+        <item>Details</item>
+    </string-array>
+
+</resources>

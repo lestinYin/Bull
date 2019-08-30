@@ -42,7 +42,8 @@ class StoreProvider : BaseItemProvider<IHomeType, BaseViewHolder>() {
         helper.setText(R.id.tv_home_store_distance,stores.toStoreDistance.toString() +"米")
 
         val view = helper.getView<ImageView>(R.id.iv_store_img)
-        ShowImage.showRoundCorners(MyApplication.context,stores.storeCover,view,14)
+//        ShowImage.showRoundCorners(MyApplication.context,stores.storeCover,view,14)
+        ShowImage.showRoundCorners(MyApplication.context,"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566480822513&di=ae919cfb38d852d4226da392f1788da3&imgtype=0&src=http%3A%2F%2Fb.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0eb30f2442a7d9337119f7dba74bd11372f001e0.jpg",view,14)
 
         val head1headImage = helper.getView<ImageView>(R.id.iv_head_img)
         ShowImage.showCircle(MyApplication.context,stores.recommenderPhoto,head1headImage)

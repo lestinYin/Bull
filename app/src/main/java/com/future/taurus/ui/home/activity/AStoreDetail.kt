@@ -14,6 +14,8 @@ import android.support.design.widget.AppBarLayout
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
 import android.view.*
+import android.widget.ImageView
+import android.widget.LinearLayout
 import com.future.taurus.MyApplication
 import com.future.taurus.R
 import com.future.taurus.ui.home.adapter.HomeAdapter
@@ -21,10 +23,11 @@ import com.lestin.yin.Constants
 import com.lestin.yin.entity.IHomeType
 import com.lestin.yin.entity.ReviewInfo
 import com.lestin.yin.entity.StoreDetailContent
+import com.lestin.yin.utils.ViewUtil
 import com.lestin.yin.utils.image.ShowImage
 import com.lestin.yin.widget.listener.AppBarStateChangeListener
 import kotlinx.android.synthetic.main.item_store_detail_bottom.*
-import kotlinx.android.synthetic.main.item_store_detail_bottom.recylerView
+
 import java.util.ArrayList
 
 
@@ -49,7 +52,7 @@ class AStoreDetail : ABase() {
 
         storeId = intent.getStringExtra("id")
         toolbar.title = ""
-        toolbar.setNavigationIcon(R.mipmap.store_detail_white_back)
+        toolbar.setNavigationIcon(R.mipmap.white_arrow_back)
         setSupportActionBar(toolbar)
 
 
@@ -95,7 +98,30 @@ class AStoreDetail : ABase() {
             showCallPhoneDialog()
         }
 
+        fillHorizentalPic()
+
     }
+
+    /**
+     *填充水平图片
+     */
+    private fun fillHorizentalPic() {
+        val categoryList = arrayOf("饺子混沌 包子粥", "快餐便当", "汉堡薯条", "意面披萨", "包子粥店")
+        ll_horizental_pic.removeAllViews()
+        val layoutParam = LinearLayout.LayoutParams(ViewUtil.dp2px(92),ViewUtil.dp2px(92))
+        layoutParam.gravity = Gravity.CENTER
+        layoutParam.leftMargin = ViewUtil.dp2px(8)
+//        layoutParam.leftMargin = 8
+        //为布局中textview设置好相关属性
+        for (i in categoryList) {
+            var image = ImageView(this)
+            ShowImage.show(this,"https://f11.baidu.com/it/u=778664578,3658473305&fm=173&app=49&f=JPEG?w=640&h=427&s=79986F9350344F9ADAACB6F503004025&access=215967316",image)
+            image.layoutParams = layoutParam
+            ll_horizental_pic.addView(image)
+            ll_horizental_pic.invalidate()
+        }
+    }
+
     //调取接口
     @SuppressLint("CheckResult")
     private fun getDateFromInterface() {

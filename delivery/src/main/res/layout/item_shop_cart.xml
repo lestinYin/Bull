@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="@dimen/dp_18"
+    tools:ignore="MissingConstraints">
+
+    <ImageView
+        android:id="@+id/iv_shop_cart_pic"
+        android:layout_width="@dimen/dp_70"
+        android:layout_height="@dimen/dp_78"
+        android:layout_marginLeft="@dimen/dp_10"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:background="@mipmap/pic4"
+         />
+    <TextView
+        android:id="@+id/tv_shopcart_food_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="番茄炒鸡蛋"
+        android:textColor="@color/color_333333"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toRightOf="@id/iv_shop_cart_pic"
+        android:layout_marginLeft="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_4"
+        android:textStyle="bold"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="微辣"
+        android:textColor="@color/color_666666"
+        app:layout_constraintLeft_toRightOf="@id/iv_shop_cart_pic"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_shopcart_food_name"
+        android:layout_marginLeft="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_5"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¥ 26"
+        android:textColor="@color/color_d10404"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_shop_cart_pic"
+        app:layout_constraintLeft_toRightOf="@id/iv_shop_cart_pic"
+        android:layout_marginLeft="@dimen/dp_15"
+        />
+
+    <LinearLayout
+        android:id="@+id/ll_show_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="@dimen/dp_10"
+        app:layout_constraintBottom_toBottomOf="@id/iv_shop_cart_pic"
+        >
+
+
+        <ImageView
+            android:id="@+id/vLess"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:layout_marginRight="@dimen/dp_10"
+            android:contentDescription="@string/app_name"
+            android:src="@mipmap/choice_food_jian"
+            />
+
+        <TextView
+            android:id="@+id/tv_cart_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp_9"
+            android:text="1"
+            android:textColor="@color/color_333333"
+            android:textSize="12sp"
+            />
+
+        <ImageView
+            android:id="@+id/vAdd"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:src="@mipmap/choice_food_plus" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

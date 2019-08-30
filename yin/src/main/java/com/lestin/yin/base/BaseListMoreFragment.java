@@ -101,12 +101,12 @@ public abstract class BaseListMoreFragment<E extends DataMode<T>, T> extends Bas
     }
 
     public void loadData(int page) {
-//        state.showCustom(new ShowStateOption("正在加载...", R.drawable.no_data));
+//        state.showCustom(new ShowStateOption("正在加载...", R.drawable.no_data_circle));
         showProgressDialog();
         boolean isNet = DeviceUtil.isNetworkAvailable(getActivity());
         if (!isNet) {
             closeProgressDialog();
-            state.showCustom(new ShowStateOption("开小差\n不小心出错了没网", R.drawable.no_data));
+            state.showCustom(new ShowStateOption("开小差\n不小心出错了没网", R.drawable.no_data_circle));
             return;
         }
         Observable<E> observable = getData(page);
@@ -115,7 +115,7 @@ public abstract class BaseListMoreFragment<E extends DataMode<T>, T> extends Bas
                 .doOnError(throwable -> {
                     if (mPage > 1) mPage--;
                     closeProgressDialog();
-                    state.showCustom(new ShowStateOption("开小差\n不小心出错了\n访问不成功", R.drawable.no_data));
+                    state.showCustom(new ShowStateOption("开小差\n不小心出错了\n访问不成功", R.drawable.no_data_circle));
                 })
                 .onExceptionResumeNext(Observable.<E>empty())
                 .onErrorResumeNext(Observable.<E>empty())
@@ -126,7 +126,7 @@ public abstract class BaseListMoreFragment<E extends DataMode<T>, T> extends Bas
                         if (mPage == 1) {
                             swipeRefresh.setRefreshing(false);
                             if (dataMode.getList().size() <= 0) {
-                                state.showCustom(new ShowStateOption("无相关内容", R.drawable.no_data));
+                                state.showCustom(new ShowStateOption("无相关内容", R.drawable.no_data_circle));
                             } else {
                                 mAdapter.setData(dataMode.getList());
 //                                loadMoreWrapper.notifyDataSetChanged();
@@ -141,7 +141,7 @@ public abstract class BaseListMoreFragment<E extends DataMode<T>, T> extends Bas
                             }
                         }
                     } else {
-                        state.showCustom(new ShowStateOption("无相关内容", R.drawable.no_data));
+                        state.showCustom(new ShowStateOption("无相关内容", R.drawable.no_data_circle));
                         closeProgressDialog();
                     }
                     closeProgressDialog();

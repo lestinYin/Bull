@@ -10,6 +10,7 @@
        android:layout_width="match_parent"
        android:layout_height="@dimen/dp_270"
        android:overScrollMode="never"
+       android:paddingLeft="@dimen/dp_9"
        />
     <View
         android:id="@+id/vvv"
@@ -17,12 +18,14 @@
         android:layout_height="@dimen/dp_1"
         android:background="@color/color_979797"
         android:layout_below="@id/rv_delivery_home_popu"
+        android:visibility="gone"
         />
     <LinearLayout
         android:layout_below="@id/vvv"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_42"
         android:orientation="horizontal"
+        android:visibility="gone"
         >
        <TextView
            android:layout_weight="1"

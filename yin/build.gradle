@@ -59,6 +59,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    //noinspection GradleCompatible
     api 'com.android.support:appcompat-v7:26.1.0'
     api 'com.android.support:design:26.1.0'
     api 'junit:junit:4.12'
@@ -96,6 +97,12 @@ dependencies {
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
     //下拉刷新 https://github.com/scwang90/SmartRefreshLayout
     api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
+    //轮播图
+    api 'com.jude:rollviewpager:1.4.6'
+    //request permission
+    api ("com.github.tbruyelle:rxpermissions:0.10.2"){
+        exclude group: 'com.android.support'
+    }
 
 
 

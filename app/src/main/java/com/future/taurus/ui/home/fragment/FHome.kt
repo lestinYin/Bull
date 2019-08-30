@@ -12,7 +12,9 @@ import com.lestin.yin.Constants
 import com.lestin.yin.base.FBase
 import com.lestin.yin.entity.IHomeType
 import com.lestin.yin.entity.Line
+import com.lestin.yin.net.exception.ExceptionHandle
 import com.lestin.yin.utils.LogUtil
+import com.lestin.yin.utils.SnackbarUtils
 import kotlinx.android.synthetic.main.list_common.*
 import java.util.*
 
@@ -40,7 +42,7 @@ class FHome : FBase() {
 
     @SuppressLint("CheckResult")
     private fun getDateFromServer() {
-        mainModel.getHome("北京市", "1", "1", page.toString(), "5").subscribe { result ->
+        mainModel.getHome("北京市", "1", "1", page.toString(), "5").subscribe ({ result ->
             if (Constants.SUCCESS.equals(result.code.toString())) {
                 val reviewInfos = result.content.reviewInfos
                 val stores = result.content.stores
@@ -60,7 +62,10 @@ class FHome : FBase() {
 //                EventBus.getDefault().postSticky(Event.HomeShowDialog())
                 swipeRefreshLayout.isRefreshing = false
             }
-        }
+        },{t->
+
+//            SnackbarUtils.Short(recylerView, ExceptionHandle.handleException(t)).show()
+        })
 //        addSubscription(disposable)
     }
 
@@ -77,14 +82,14 @@ class FHome : FBase() {
     override fun initView() {
         recylerView.layoutManager = LinearLayoutManager(context)
 
-        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary)
-        swipeRefreshLayout.isRefreshing = false
+//        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary)
+//        swipeRefreshLayout.isRefreshing = false
 
-        swipeRefreshLayout.setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener {
-            page = 1
-            getDateFromServer()
-
-        })
+//        swipeRefreshLayout.setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener {
+//            page = 1
+//            getDateFromServer()
+//
+//        })
     }
 
     override fun start() {

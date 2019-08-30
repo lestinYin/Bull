@@ -31,7 +31,7 @@
             android:drawableRight="@drawable/selector_radio_drawable"
             android:layout_marginLeft="@dimen/dp_38"
             android:padding="@dimen/dp_4"
-            android:text="品类" />
+            android:text="销量" />
 
         <RadioButton
             android:id="@+id/rb_distance"

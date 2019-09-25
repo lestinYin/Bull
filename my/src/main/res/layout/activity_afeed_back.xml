@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.AFeedBack"
+    android:orientation="vertical"
+    android:background="@color/color_f3f3f3"
+    android:fitsSystemWindows="true"
+    tools:ignore="MissingConstraints">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@color/white"
+        android:padding="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/dp_15"
+                android:paddingRight="@dimen/dp_20"
+                android:src="@mipmap/my_back" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/feed_back"
+                android:textColor="@color/color_333333"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_162"
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        android:background="@drawable/shape_colorprimary_stock_bg"
+        >
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="请留下您的宝贵意见或者建议，我们将努力改进
+（不少于五个字）"
+            android:textSize="15sp"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            android:maxLength="50"
+            android:layout_marginTop="@dimen/dp_5"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0/50"
+            android:textColor="@color/color_999999"
+            android:textSize="10sp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/dp_15"
+            />
+
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:text="@string/sure"
+        android:textColor="#ffffffff"
+        android:textSize="15sp"
+        android:layout_marginTop="@dimen/dp_30"
+        android:background="@drawable/shape_colorprimary_solid_bg"
+        android:gravity="center"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        />
+
+</LinearLayout>

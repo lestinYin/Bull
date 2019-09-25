@@ -6,6 +6,8 @@
     <color name="text_A9AAAB">#A9AAAB</color>
     <color name="divider">#A9AAAB</color>
     <color name="home_bg">#F3F3F3</color>
+    <color name="color_F4F4F4">#F4F4F4</color>
+    <color name="color_F5F5F5">#F5F5F5</color>
     <color name="black">#000000</color>
 
     <color name="pub_white_50">#afffffff</color>
@@ -33,4 +35,5 @@
     <color name="color_FF2A2A">#FF2A2A</color>
     <color name="color_f3f3f3">#f3f3f3</color>
     <color name="color_F6FBFF">#F6FBFF</color>
+    <color name="color_F92D34">#F92D34</color>
 </resources>

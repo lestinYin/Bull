@@ -13,7 +13,6 @@ import java.util.ArrayList
 import android.support.design.widget.AppBarLayout
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AlertDialog
-import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.view.*
 import com.lestin.yin.widget.listener.AppBarStateChangeListener
@@ -26,14 +25,11 @@ import android.widget.PopupWindow
 import android.widget.TextView
 import android.support.v7.widget.RecyclerView
 import com.jinniu.delivery.R
-import com.jinniu.delivery.adapter.BannerAdapter
+import com.lestin.yin.adapter.BannerAdapter
 import com.jude.rollviewpager.hintview.ColorPointHintView
 import com.zhy.adapter.recyclerview.CommonAdapter
 import com.zhy.adapter.recyclerview.base.ViewHolder
 import kotlinx.android.synthetic.main.include_delivery_home_top.*
-import org.w3c.dom.Text
-
-
 
 
 @Route(path = "/delivery/hometest")
@@ -41,7 +37,7 @@ class ADeliveryHomeTest : ABase() {
     private var mAlertDialog: AlertDialog? = null
     private var mDialogWindow: Window? = null
     internal var toolBarPositionY = 0
-    private lateinit var popupWindow: PopupWindow;
+    private lateinit var popupWindow: PopupWindow
     private var isShowPopu = false
 
 

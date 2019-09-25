@@ -27,6 +27,19 @@ import com.lestin.yin.utils.ViewUtil
 import com.lestin.yin.utils.image.ShowImage
 import com.lestin.yin.widget.listener.AppBarStateChangeListener
 import kotlinx.android.synthetic.main.item_store_detail_bottom.*
+import kotlinx.android.synthetic.main.item_store_detail_bottom.view.*
+import kotlinx.android.synthetic.main.item_store_detail_bottom.view.iv_store_detail_call_phone
+import kotlinx.android.synthetic.main.item_store_detail_bottom.view.ll_horizental_pic
+import kotlinx.android.synthetic.main.item_store_detail_bottom.view.recylerView
+import kotlinx.android.synthetic.main.item_store_detail_bottom.view.tv_store_detail_daka_number
+import kotlinx.android.synthetic.main.item_store_detail_bottom.view.tv_store_detail_daren_number
+import kotlinx.android.synthetic.main.item_store_detail_bottom.view.tv_store_detail_distance
+import kotlinx.android.synthetic.main.item_store_detail_bottom.view.tv_store_detail_location
+import kotlinx.android.synthetic.main.item_store_detail_bottom.view.tv_store_detail_renjun
+import kotlinx.android.synthetic.main.item_store_detail_bottom.view.tv_store_detail_tag
+import kotlinx.android.synthetic.main.item_store_detail_bottom.view.tv_store_detail_title
+import kotlinx.android.synthetic.main.item_store_detail_bottom.view.tv_store_detail_yinye
+
 
 import java.util.ArrayList
 
@@ -47,15 +60,37 @@ class AStoreDetail : ABase() {
     override fun layoutId(): Int = R.layout.activity_astore_detail
 
     override fun initView() {
-        showProgressDialog()
+//        showProgressDialog()
         mImmersionBar!!.statusBarColor(R.color.transparent).init()
 
         storeId = intent.getStringExtra("id")
         toolbar.title = ""
         toolbar.setNavigationIcon(R.mipmap.white_arrow_back)
         setSupportActionBar(toolbar)
+        //无接口时
+        setTitleCenter(toolbar,"好迪KTV")
+        ShowImage.show(this,"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1569412934394&di=580ce8a0585eb4af3c29cffe7e1e7ab1&imgtype=jpg&src=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2275054218%2C1241459537%26fm%3D214%26gp%3D0.jpg",mIv)
+        var list = arrayListOf<ReviewInfo>()
+        list.add(ReviewInfo("","","","","","","","","",8,5, emptyList(),"","",5))
+        list.add(ReviewInfo("","","","","","","","","",8,5, emptyList(),"","",5))
+        list.add(ReviewInfo("","","","","","","","","",8,5, emptyList(),"","",5))
+        list.add(ReviewInfo("","","","","","","","","",8,5, emptyList(),"","",5))
+        setReviewList(list)
 
+        include_head.include_fengcai_one.findViewById<TextView>(R.id.tv_store_list_dish_price).visibility = View.GONE
+        include_head.include_fengcai_one.findViewById<TextView>(R.id.tv_tv_store_list_dish_price_former).visibility = View.GONE
+        val imageView = include_head.include_fengcai_one.findViewById<ImageView>(R.id.iv_store_list_pic)
+        ShowImage.show(this,"https://f10.baidu.com/it/u=2059901119,3519034039&fm=72",imageView)
 
+        include_head.include_fengcai_two.findViewById<TextView>(R.id.tv_store_list_dish_price).visibility = View.GONE
+        include_head.include_fengcai_two.findViewById<TextView>(R.id.tv_tv_store_list_dish_price_former).visibility = View.GONE
+        val imageView1 = include_head.include_fengcai_two.findViewById<ImageView>(R.id.iv_store_list_pic)
+        ShowImage.show(this,"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2782458452,3931838763&fm=26&gp=0.jpg",imageView1)
+
+        include_head.include_fengcai_three.findViewById<TextView>(R.id.tv_store_list_dish_price).visibility = View.GONE
+        include_head.include_fengcai_three.findViewById<TextView>(R.id.tv_tv_store_list_dish_price_former).visibility = View.GONE
+        val imageView2 = include_head.include_fengcai_three.findViewById<ImageView>(R.id.iv_store_list_pic)
+        ShowImage.show(this,"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3025417687,2075174919&fm=26&gp=0.jpg",imageView2)
 
     }
 
@@ -80,7 +115,7 @@ class AStoreDetail : ABase() {
             }
         })
 
-        getDateFromInterface()
+//        getDateFromInterface()
 
         //点击返回键
         toolbar.setNavigationOnClickListener {

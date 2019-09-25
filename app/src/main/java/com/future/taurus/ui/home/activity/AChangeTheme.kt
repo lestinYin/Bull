@@ -5,7 +5,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.future.taurus.R
 import com.lestin.yin.base.ABase
-import com.lestin.yin.utils.ToastUtils
+import com.lestin.yin.widget.photoview.PhotoView
 import kotlinx.android.synthetic.main.activity_achange_theme.*
 
 /**

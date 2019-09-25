@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".activity.AAddBankCard"
+    tools:ignore="MissingConstraints">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:padding="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/dp_15"
+                android:paddingRight="@dimen/dp_20"
+                android:src="@mipmap/my_back" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="验证银行卡信息"
+                android:textColor="@color/color_333333"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="276dp"
+            android:layout_height="17dp"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_5"
+            android:text="请将银行卡绑定至您本人的账号，以保障自己安全"
+            android:textColor="#ff999999"
+            android:textSize="12sp" />
+
+        <include
+            android:id="@+id/include_card_person"
+            layout="@layout/include_card_input" />
+
+        <include
+            android:id="@+id/include_id_card"
+            layout="@layout/include_card_input" />
+
+        <include
+            android:id="@+id/include_card_number"
+            layout="@layout/include_card_input" />
+
+        <include
+            android:id="@+id/include_phone_number"
+            layout="@layout/include_card_input" />
+
+        <include
+            android:id="@+id/include_verfi_code"
+            layout="@layout/include_card_input" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_50"
+            android:layout_marginRight="@dimen/dp_10"
+            android:background="@drawable/shape_color_primary_bg"
+            android:gravity="center"
+            android:paddingTop="@dimen/dp_8"
+            android:paddingBottom="@dimen/dp_8"
+            android:text="确认绑定"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

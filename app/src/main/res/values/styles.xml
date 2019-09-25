@@ -37,6 +37,30 @@
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:backgroundDimEnabled">false</item>
     </style>
+    <!--对话框样式的activity-->
+    <style name="full_width_dialog" parent="@style/Theme.AppCompat.Dialog">
+        <item name="android:windowMinWidthMajor">100%</item>
+        <item name="android:windowMinWidthMinor">100%</item>
+        <!-- 去黑边 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 设置是否可滑动 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 设置是否透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:layout_width">match_parent</item>
+        <!-- 背景 -->
+        <item name="android:background">@null</item>
+        <!-- 窗口背景 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 是否变暗 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 点击空白部分activity不消失 -->
+        <item name="android:windowCloseOnTouchOutside">false</item>
+    </style>
+
 
     <!--state ful layout 相关-->
     <color name="stfImageColor">#FF4081</color>

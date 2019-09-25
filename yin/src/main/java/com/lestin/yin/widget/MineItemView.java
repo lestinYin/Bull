@@ -49,10 +49,10 @@ public class MineItemView extends RelativeLayout {
     private void initLayout(Context context, AttributeSet attrs) {
         LayoutInflater.from(context)
                 .inflate(R.layout.item_mine, this);
-        this.headImg =  findViewById(R.id.iv_img);
-        this.mName =  findViewById(R.id.tv_name);
-        this.line =  findViewById(R.id.line);
-        this.mRightText =  findViewById(R.id.tv_right);
+        this.headImg = findViewById(R.id.iv_img);
+        this.mName = findViewById(R.id.tv_name);
+        this.line = findViewById(R.id.line);
+        this.mRightText = findViewById(R.id.tv_right);
 
         mName.setText(textName);
         mRightText.setText(rightText);
@@ -60,5 +60,13 @@ public class MineItemView extends RelativeLayout {
 
         headImg.setBackgroundResource(img);
 
+    }
+
+    public TextView getRightText() {
+        return mRightText;
+    }
+
+    public TextView getText() {
+        return mName;
     }
 }

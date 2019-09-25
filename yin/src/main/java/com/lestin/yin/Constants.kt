@@ -22,6 +22,13 @@ class Constants private constructor() {
 
         val USER_EXIST_STATE : String = "199"
         val SUCCESS : String = "200"
+
+        //图片相关
+        val INTENT_TAKE_PIC_DICM : Int= 1
+        val INTENT_TAKE_PIC_CAMEAR : Int= 2
+        val INTENT_TAKE_PIC_SCALE : Int= 3
+        val IS_NORMAL_PIC : String = "is_normal_pic"
+        val RESULT_CODE_GET_PIC = 1
     }
 
 }

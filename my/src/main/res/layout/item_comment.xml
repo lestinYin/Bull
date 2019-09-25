@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toBottomOf="parent"
+    android:layout_marginBottom="@dimen/dp_15"
+    android:background="@color/white"
+    tools:ignore="MissingConstraints">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/dp_10"
+        android:background="@mipmap/my_arrow_right"
+        app:layout_constraintBottom_toBottomOf="@id/tv_store_name"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_store_name" />
+
+    <ImageView
+        android:id="@+id/iv_head_img"
+        android:layout_width="@dimen/dp_46"
+        android:layout_height="@dimen/dp_46"
+        android:layout_margin="@dimen/dp_10"
+        android:background="@mipmap/my_head_default"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_line" />
+
+    <TextView
+        android:id="@+id/tv_store_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_10"
+        android:text="假如在成都（酸菜鱼&amp;四川小吃）"
+        android:textColor="@color/color_999999"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:text="XXXXXXXXXXX"
+        android:textColor="@color/color_333333"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toRightOf="@id/iv_head_img"
+        app:layout_constraintTop_toTopOf="@id/iv_head_img" />
+
+    <TextView
+        android:id="@+id/tv_shangjia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="商家:"
+        android:textColor="@color/color_666666"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_head_img"
+        app:layout_constraintLeft_toLeftOf="@id/tv_name" />
+
+    <TextView
+        android:id="@+id/tv_kou_wei"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_5"
+        android:text="口味:5星"
+        android:textColor="@color/color_666666"
+        android:textSize="10sp"
+        app:layout_constraintLeft_toLeftOf="@id/tv_shangjia"
+        app:layout_constraintTop_toBottomOf="@id/tv_shangjia"/>
+
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:layout_marginTop="@dimen/dp_6"
+        android:background="@color/color_f3f3f3"
+        app:layout_constraintTop_toBottomOf="@id/tv_store_name" />
+    <View
+        android:id="@+id/view_line_two"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:layout_marginTop="@dimen/dp_6"
+        android:background="@color/color_f3f3f3"
+        app:layout_constraintTop_toBottomOf="@id/tv_kou_wei" />
+    <TextView
+        android:id="@+id/tv_comment_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="端午节啊电脑那我就按的那位你觉得呢安慰你你我弟那今晚你的男的就安慰你的我拿到金瓦节能灯那我就那几年就啊我能接你啊我接你那我能拿哇难啊拿哇就可能大家拿哇你的那位难道你啊看你的家你玩dawn困哇饥渴难耐玩呢几晚玩呢弟那我就拿大奖拿哇加拿大籍拿哇拿哇可能快忘记拿你我看到我"
+        android:textColor="@color/color_333333"
+        app:layout_constraintTop_toBottomOf="@id/view_line_two"
+        android:textSize="15sp"
+        android:layout_marginTop="@dimen/dp_7"
+        android:layout_marginLeft="@dimen/dp_15"
+        android:layout_marginRight="@dimen/dp_15"
+        />
+    <View
+        android:id="@+id/view_line_three"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:layout_marginTop="@dimen/dp_15"
+        android:background="@color/color_f3f3f3"
+        app:layout_constraintTop_toBottomOf="@id/tv_comment_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="删除"
+        android:textColor="@color/color_666666"
+        android:textSize="12sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_line_three"
+        android:layout_marginTop="@dimen/dp_6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="@dimen/dp_6"
+        android:layout_marginRight="@dimen/dp_23"
+        android:drawableLeft="@mipmap/lajitong"
+        android:drawablePadding="@dimen/dp_3"
+        />
+
+
+    <com.lestin.yin.widget.MyRatingBar
+        android:id="@+id/rating_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/tv_shangjia"
+        app:layout_constraintLeft_toRightOf="@id/tv_shangjia"
+        app:layout_constraintTop_toTopOf="@id/tv_shangjia"
+        android:layout_marginStart="@dimen/dp_6"
+        app:starCount="5"
+        app:starEmpty="@mipmap/rating_false"
+        app:starFill="@mipmap/rating_full"
+        app:starHalf="@mipmap/rating_half"
+        app:starImageSize="@dimen/dp_20"
+        app:starPadding="@dimen/dp_4"
+        app:starStep="1.5"
+        app:stepSize="Half" />
+
+
+
+</android.support.constraint.ConstraintLayout>

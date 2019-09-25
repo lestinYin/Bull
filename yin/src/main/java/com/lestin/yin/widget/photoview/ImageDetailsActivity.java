@@ -1,6 +1,7 @@
 package com.lestin.yin.widget.photoview;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -50,7 +51,7 @@ public class ImageDetailsActivity extends FragmentActivity implements OnPageChan
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ashow_pic);
+        setContentView(R.layout.activity_ashow_image);
         mCurtPosition = getIntent().getIntExtra("position", 0);
         isDelete = getIntent().getBooleanExtra("isDelete", false);
         mHeadUrl = getIntent().getStringExtra("headurl");
@@ -81,18 +82,18 @@ public class ImageDetailsActivity extends FragmentActivity implements OnPageChan
         return true;
     }
 
-    public static void start(int requestCode, Activity context, ArrayList<String> imagePath, boolean isShowDelete, int curtPosition, String headUrl) {
-        if (requestCode == -1) {
-            context.startActivity(new Intent(context, ImageDetailsActivity.class).putStringArrayListExtra("image_path", imagePath)
-                    .putExtra("isDelete", isShowDelete)
-                    .putExtra("position", curtPosition)
-                    .putExtra("headurl", headUrl));
-        } else {
-            context.startActivityForResult(new Intent(context, ImageDetailsActivity.class).putStringArrayListExtra("image_path", imagePath)
-                    .putExtra("isDelete", isShowDelete)
-                    .putExtra("position", curtPosition)
-                    .putExtra("headurl", headUrl), requestCode);
-        }
+    public static void start(int requestCode, Context context, ArrayList<String> imagePath, boolean isShowDelete, int curtPosition, String headUrl) {
+//        if (requestCode == -1) {
+        context.startActivity(new Intent(context, ImageDetailsActivity.class).putStringArrayListExtra("image_path", imagePath)
+                .putExtra("isDelete", isShowDelete)
+                .putExtra("position", curtPosition)
+                .putExtra("headurl", headUrl));
+//        } else {
+//            context.startActivityForResult(new Intent(context, ImageDetailsActivity.class).putStringArrayListExtra("image_path", imagePath)
+//                    .putExtra("isDelete", isShowDelete)
+//                    .putExtra("position", curtPosition)
+//                    .putExtra("headurl", headUrl), requestCode);
+//        }
     }
 
     @Override
@@ -117,7 +118,7 @@ public class ImageDetailsActivity extends FragmentActivity implements OnPageChan
         }
     }
 
-    private void getBack(){
+    private void getBack() {
         Intent intent = new Intent();
         intent.putStringArrayListExtra("resultList", mListImage);
         intent.putStringArrayListExtra(REMAIN_IMGS, mListImage);
@@ -154,7 +155,8 @@ public class ImageDetailsActivity extends FragmentActivity implements OnPageChan
                 }
             });
 
-            if(path.contains("http")) ShowImage.showPhotoView(ImageDetailsActivity.this,path,mImageView);
+            if (path.contains("http"))
+                ShowImage.showPhotoView(ImageDetailsActivity.this, path, mImageView);
 //            ImageLoader.getInstance().displayImage(path, mImageView, mDefaultOptions);
             else {
 //                File file = new File(path);

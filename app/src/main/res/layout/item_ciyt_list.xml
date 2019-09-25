@@ -20,6 +20,7 @@
         android:layout_marginTop="@dimen/dp_14"
         />
     <TextView
+        android:id="@+id/tv_city_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="美食购物天堂"

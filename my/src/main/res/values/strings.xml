@@ -1,16 +1,64 @@
 <resources>
     <string name="app_name">my</string>
     <string name="chinese_englist">中文/EN</string>
-    <string name="my_like">喜欢</string>
+    <string name="my_like">我的喜欢</string>
     <string name="my_share">分享</string>
     <string name="my_daka">打卡</string>
     <string name="my_tools">实用工具</string>
-    <string name="my_info">申请条件：打卡店铺不少于20，评论不少于50条，打卡次数不少于100次</string>
-    <string name="my_apply_daren">申请成为达人</string>
-    <string name="my_apply_small_info">打卡 + 320</string>
+
     <string name="wallet">钱包</string>
     <string name="invite">邀请</string>
     <string name="zhuanjifen">赚积分</string>
     <string name="my_invite_info">申请开通邀请奖励</string>
     <string name="my_zhuanjifen_info">累计完成15个</string>
+    <string name="my_yue">Toros余额</string>
+    <string name="my_jifen_center">积分中心</string>
+    <string name="my_youhuijuan">优惠卷</string>
+    <string name="my_address">我的地址</string>
+    <string name="my_receipt_address">我的收货地址</string>
+    <string name="my_create_address">新增地址</string>
+    <string name="my_comment">我的评价</string>
+    <string name="my_customer">我的客服</string>
+    <string name="my_join_daren_plan">加入达人计划</string>
+    <string name="my_join_tuiguang_plan">加入推广计划</string>
+    <string name="my_zhuanqian_choice">赚钱新机遇</string>
+    <string name="my_bawang_free">霸王餐免费吃</string>
+    <string name="my_zhuanjifen_duiyouhuijuan">赚积分，兑换优惠卷</string>
+    <string name="person_center">个人中心</string>
+    <string name="head_img">头像</string>
+    <string name="user_name">用户名</string>
+    <string name="user_name_">用户名:</string>
+    <string name="go_edit">去编辑</string>
+    <string name="receipt_address">收货地址</string>
+    <string name="change_username">修改用户名</string>
+    <string name="sure">确定</string>
+    <string name="change_user_name_info">用户名只能修改一次,以英文字母或汉字开头,4-16个字符,一个汉字为两个字符</string>
+    <string name="yu_e_N">余额（N）</string>
+    <string name="phone_in">手机充值</string>
+    <string name="my_bank_card">我的银行卡</string>
+    <string name="setting">设置</string>
+    <string name="acount_safe">账号与安全</string>
+    <string name="xiaoe_pay">小额免密支付</string>
+    <string name="feed_back">意见反馈</string>
+    <string name="submit">提交</string>
+    <string name="normal_question">常见问题</string>
+    <string name="pay_question">支付问题</string>
+    <string name="delivery_question">送餐问题</string>
+    <string name="other_question">其他问题</string>
+    <string name="coupon">优惠劵</string>
+    <string name="integral_center">积分中心</string>
+    <string name="aboat_us">关于我们</string>
+    <string name="where_is_eat">哪里值得吃</string>
+
+
+    <string-array name="my_tools">
+        <item>电话充值</item>
+        <item>帮助中心</item>
+        <item>优惠卷商城</item>
+        <item>邀请好友</item>
+        <item>邀请商户</item>
+        <item>商家入驻</item>
+        <item>代理合作</item>
+        <item>骑手招募</item>
+    </string-array>
 </resources>

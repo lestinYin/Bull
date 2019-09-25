@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_F4F4F4"
+    tools:context=".activity.AChangeUserName"
+    android:fitsSystemWindows="true"
+    tools:ignore="MissingConstraints"
+    >
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@color/white"
+       >
+
+        <ImageView
+            android:id="@+id/iv_my_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/dp_10"
+            android:src="@mipmap/my_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/change_username"
+            android:textColor="@color/color_333333"
+            android:textStyle="bold"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/sure"
+            android:textColor="@color/colorPrimary"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_15"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/rl_change_user"
+        app:layout_constraintTop_toBottomOf="@id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:layout_marginTop="@dimen/dp_15"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        android:background="@drawable/shape_colorprimary_stock_white_solid_bg"
+        >
+        <TextView
+            android:id="@+id/tv_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user_name_"
+            android:textColor="@color/color_333333"
+            android:textSize="18sp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_11"
+            />
+
+        <EditText
+            android:id="@+id/et_user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_333333"
+            android:textSize="15sp"
+            android:layout_toRightOf="@id/tv_user_name"
+            android:layout_alignBottom="@id/tv_user_name"
+            android:background="@null"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:maxLength="16"
+            android:maxLines="1"
+            />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/change_user_name_info"
+        android:textColor="#ff999999"
+        android:textSize="10sp"
+        app:layout_constraintTop_toBottomOf="@id/rl_change_user"
+        android:layout_margin="@dimen/dp_10"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.AWithDraw"
+    android:background="@color/color_f3f3f3"
+    android:orientation="vertical"
+    tools:ignore="MissingConstraints">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_with_draw_bg"
+        android:paddingTop="@dimen/dp_25"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_11"
+            android:src="@mipmap/white_arrow_back" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="提现"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/iv_back"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_back" />
+
+        <RelativeLayout
+            android:id="@+id/rl_yu_e"
+            android:layout_width="@dimen/dp_55"
+            android:layout_height="@dimen/dp_55"
+            android:layout_marginLeft="@dimen/dp_25"
+            android:layout_marginTop="@dimen/dp_44"
+            android:background="@drawable/shape_circle_white_bg"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_back">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@mipmap/my_yue" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_yinhangka"
+            android:layout_width="@dimen/dp_55"
+            android:layout_height="@dimen/dp_55"
+            android:layout_marginTop="@dimen/dp_44"
+            android:layout_marginRight="@dimen/dp_29"
+            android:background="@drawable/shape_circle_white_bg"
+            app:layout_constraintRight_toRightOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@id/iv_back">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@mipmap/yinhangka" />
+
+        </RelativeLayout>
+        <ImageView
+            android:id="@+id/iv_long_arrow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/rl_yu_e"
+            app:layout_constraintLeft_toRightOf="@id/rl_yu_e"
+            app:layout_constraintRight_toLeftOf="@id/rl_yinhangka"
+            android:background="@mipmap/withdraw_long_arrow"
+            android:layout_marginLeft="@dimen/dp_27"
+            android:layout_marginRight="@dimen/dp_23"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="可用余额"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@id/rl_yu_e"
+            app:layout_constraintLeft_toLeftOf="@id/rl_yu_e"
+            app:layout_constraintRight_toRightOf="@id/rl_yu_e"
+            android:layout_marginTop="@dimen/dp_2"
+
+            />
+        <TextView
+            android:id="@+id/tv_bind_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="绑定银行卡>\n(1234)"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:gravity="center_horizontal"
+            app:layout_constraintTop_toBottomOf="@id/rl_yinhangka"
+            app:layout_constraintLeft_toLeftOf="@id/rl_yinhangka"
+            app:layout_constraintRight_toRightOf="@id/rl_yinhangka"
+            android:layout_marginTop="@dimen/dp_2"
+            android:paddingBottom="@dimen/dp_34"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="金额"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toTopOf="@id/iv_long_arrow"
+            app:layout_constraintLeft_toLeftOf="@id/iv_long_arrow"
+            app:layout_constraintRight_toRightOf="@id/iv_long_arrow"
+            android:layout_marginBottom="@dimen/dp_9"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="预计24小时内到账"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="@id/iv_long_arrow"
+            app:layout_constraintRight_toRightOf="@id/iv_long_arrow"
+            app:layout_constraintTop_toBottomOf="@id/iv_long_arrow"
+            android:layout_marginTop="@dimen/dp_7"
+            />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        >
+
+        <ImageView
+            android:id="@+id/iv_dollar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/icon_dollar"
+            android:layout_margin="@dimen/dp_16"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <TextView
+            android:id="@+id/tv_all_withdraw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="全部提现"
+            android:textColor="#ff4da8fe"
+            android:textSize="12sp"
+            app:layout_constraintTop_toTopOf="@id/iv_dollar"
+            app:layout_constraintBottom_toBottomOf="@id/iv_dollar"
+            app:layout_constraintRight_toRightOf="parent"
+            android:paddingRight="@dimen/dp_10"
+            />
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColorHint="#ffdcdcdc"
+            android:textColor="@color/color_333333"
+            android:textSize="15sp"
+            android:hint="可兑出到银行XXXN"
+            android:background="@null"
+            app:layout_constraintLeft_toRightOf="@id/iv_dollar"
+            app:layout_constraintRight_toLeftOf="@id/tv_all_withdraw"
+            app:layout_constraintBottom_toBottomOf="@id/iv_dollar"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:inputType="number"
+
+            />
+        <View
+            android:id="@+id/view_line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:background="@color/color_f3f3f3"
+            app:layout_constraintTop_toBottomOf="@id/iv_dollar"
+            android:layout_marginTop="@dimen/dp_18"
+            />
+        <TextView
+            android:id="@+id/tv_withdraw_dollar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="可提现金额XXXN"
+            android:textColor="@color/color_999999"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@id/view_line"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="@dimen/dp_17"
+            android:layout_marginLeft="@dimen/dp_10"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1N(平台货币)=11340越南盾"
+            android:textColor="@color/color_999999"
+            android:textSize="12sp"
+            app:layout_constraintTop_toTopOf="@id/tv_withdraw_dollar"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="@dimen/dp_10"
+            android:paddingBottom="@dimen/dp_10"
+            />
+
+    </android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/tv_xieyi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="查看《银行卡服务协议》"
+        android:textColor="@color/color_999999"
+        android:textSize="12sp"
+        android:layout_margin="@dimen/dp_12"
+        />
+    <RelativeLayout
+        android:id="@+id/rl_duihuan_niu"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/dp_22"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="积分奖励自动兑换成牛"
+            android:textColor="@color/color_333333"
+            android:textSize="15sp"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_centerVertical="true"
+            />
+        <CheckBox
+            android:id="@+id/checkbox_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_A9AAAB"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_14"
+            android:layout_centerVertical="true"
+            android:checked="true"
+            android:button="@drawable/select_check_box"
+            android:textSize="14sp"
+            android:gravity="center"
+            />
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/tv_tixian"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="提现"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:background="@drawable/shape_color_primary_bg"
+        android:layout_marginLeft="@dimen/dp_11"
+        android:layout_marginRight="@dimen/dp_11"
+        android:layout_marginTop="@dimen/dp_22"
+        android:gravity="center"
+        android:paddingTop="@dimen/dp_8"
+        android:paddingBottom="@dimen/dp_8"
+
+        />
+
+</LinearLayout>

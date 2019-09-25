@@ -1,15 +1,11 @@
 package com.future.taurus.ui.home.adapter
 
-import android.os.Parcel
-import android.os.Parcelable
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.chad.library.adapter.base.MultipleItemRvAdapter
 import com.future.taurus.ui.home.provider.StoreProvider
-import com.future.taurus.ui.home.entity.EHome
 import com.future.taurus.ui.home.provider.LineProvider
 import com.future.taurus.ui.home.provider.RaidersProvider
-import com.lestin.yin.base.AdapterInterface
 import com.lestin.yin.entity.IHomeType
 
 /**

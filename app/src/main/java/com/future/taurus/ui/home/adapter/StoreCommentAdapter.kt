@@ -6,7 +6,6 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.future.taurus.MyApplication
 import com.future.taurus.R
-import com.future.taurus.ui.home.entity.EHome
 import com.lestin.yin.entity.StoreComment
 import com.lestin.yin.utils.image.ShowImage
 

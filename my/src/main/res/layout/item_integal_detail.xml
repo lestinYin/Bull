@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="邀请奖励"
+        android:textColor="@color/color_979797"
+        android:textSize="12sp"
+        android:layout_marginLeft="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_7"
+        />
+    <TextView
+        android:id="@+id/tv_liushui_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="流水号：XXXTTTYYPP"
+        android:textColor="@color/color_979797"
+        android:textSize="12sp"
+        android:layout_below="@id/tv_name"
+        android:layout_marginLeft="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_5"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+40.12"
+        android:textColor="@color/color_979797"
+        android:textSize="12sp"
+        android:layout_alignParentRight="true"
+        android:layout_alignBaseline="@id/tv_name"
+        android:layout_marginRight="@dimen/dp_12"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XXXTTTYYPP"
+        android:textColor="@color/color_979797"
+        android:textSize="12sp"
+        android:layout_alignBaseline="@id/tv_liushui_number"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/dp_12"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:layout_below="@id/tv_liushui_number"
+        android:layout_marginTop="@dimen/dp_8"
+        android:background="@color/color_E8EBEE"
+        android:layout_marginLeft="@dimen/dp_12"
+        android:layout_marginRight="@dimen/dp_12"
+        />
+
+</RelativeLayout>

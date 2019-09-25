@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ACustomerService"
+    tools:ignore="MissingConstraints"
+    android:fitsSystemWindows="true"
+    android:background="@color/color_f3f3f3"
+    >
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@color/white"
+        android:padding="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/dp_15"
+                android:paddingRight="@dimen/dp_20"
+                android:src="@mipmap/my_back" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/my_customer"
+                android:textColor="@color/color_333333"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/ll_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <com.lestin.yin.widget.MineItemView
+            android:id="@+id/miv_normal_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            app:img="@mipmap/changjianwenti"
+            app:name="@string/normal_question"
+             />
+
+        <com.lestin.yin.widget.MineItemView
+            android:id="@+id/miv_pay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:img="@mipmap/zhifuwenti"
+            app:name="@string/pay_question"
+             />
+
+        <com.lestin.yin.widget.MineItemView
+            android:id="@+id/miv_delivery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:img="@mipmap/songcanfuwu"
+            app:name="@string/delivery_question" />
+        <com.lestin.yin.widget.MineItemView
+            android:id="@+id/miv_other_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:img="@mipmap/other_question"
+            app:line="false"
+            app:name="@string/other_question" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

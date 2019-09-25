@@ -7,19 +7,20 @@ import com.lestin.yin.base.ABase
 import kotlinx.android.synthetic.main.activity_achoice_city.*
 
 class AChoiceCity : ABase() {
-//    val cityList = resources.getStringArray(R.array.city_list)
-//    val cityListInfo = resources.getStringArray(R.array.city_list_info)
-    val cityList = arrayOf("汇兑信息", "安全电话", "应急卡", "小费助手", "电话充值", "帮助中心", "积分兑换", "推广收益")
 
 
     override fun layoutId(): Int = R.layout.activity_achoice_city
 
     override fun initView() {
+
         mImmersionBar!!.statusBarColor(R.color.colorPrimary).init()
     }
 
     override fun initData() {
-        var cityAdapter = CityAdapter(cityList.toMutableList() )
+        var cityList = resources.getStringArray(R.array.city_lists)
+        var cityListInfo = resources.getStringArray(R.array.city_list_infos)
+
+        var cityAdapter = CityAdapter(cityList.toMutableList() ,cityListInfo.toMutableList())
         recycler_city_list.adapter = cityAdapter
 
 
@@ -36,12 +37,14 @@ class AChoiceCity : ABase() {
 }
 
 //城市列表
-class CityAdapter(data: List<String>) : BaseQuickAdapter<String, BaseViewHolder>(data) {
+class CityAdapter(data: List<String>, private val cityInfo: MutableList<String>) : BaseQuickAdapter<String, BaseViewHolder>(data) {
+
     init {
         mLayoutResId = R.layout.item_ciyt_list
     }
-
     override fun convert(helper: BaseViewHolder?, item: String?) {
+        helper!!.setText(R.id.tv_city_name,item)
+        helper!!.setText(R.id.tv_city_info,cityInfo[helper.position])
     }
 
 }

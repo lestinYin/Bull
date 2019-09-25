@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_f3f3f3"
+    tools:ignore="MissingConstraints">
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="若重复支付，但实际订单只有一笔，其中多付款项会直接退回您的原支付账户，多付的金额是不会丢失的，预计1-3个工作日到账，请您随时查看哦。"
+        android:textColor="#ff333333"
+        android:textSize="12sp"
+        android:layout_marginLeft="@dimen/dp_12"
+        android:layout_marginRight="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_15"
+        android:layout_marginBottom="@dimen/dp_15"
+         />
+</RelativeLayout>

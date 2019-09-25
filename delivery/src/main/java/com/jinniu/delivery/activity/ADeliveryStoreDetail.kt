@@ -1,7 +1,6 @@
 package com.jinniu.delivery.activity
 
 import android.annotation.SuppressLint
-import android.support.design.widget.AppBarLayout
 import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import android.view.View
@@ -18,13 +17,7 @@ import com.lestin.yin.base.ABase
 import com.lestin.yin.utils.*
 import com.lestin.yin.utils.image.ShowImage
 import com.lestin.yin.widget.CommonPagerAdapter
-import com.lestin.yin.widget.listener.AppBarStateChangeListener
-import kotlinx.android.synthetic.main.activity_adelivery_home.*
-import kotlinx.android.synthetic.main.activity_adelivery_home_test.*
-import kotlinx.android.synthetic.main.activity_adelivery_home_test.tb_delivery
-import kotlinx.android.synthetic.main.activity_adelivery_home_test.vp_delivery
 import kotlinx.android.synthetic.main.activity_adelivery_store_detail.*
-import kotlinx.android.synthetic.main.bar_delivery_home.*
 import kotlinx.android.synthetic.main.include_delivery_store_detail_head.*
 import kotlinx.android.synthetic.main.include_store_detail_cart.*
 import java.util.ArrayList

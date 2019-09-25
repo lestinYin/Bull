@@ -4,7 +4,6 @@ import com.chad.library.adapter.base.BaseViewHolder
 import com.chad.library.adapter.base.provider.BaseItemProvider
 import com.future.taurus.R
 import com.future.taurus.ui.home.adapter.HomeAdapter
-import com.future.taurus.ui.home.entity.EHome
 import com.lestin.yin.entity.IHomeType
 
 /**

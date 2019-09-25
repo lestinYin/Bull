@@ -47,15 +47,15 @@ class AHome : ABase() {
         testRxPermission()
 
         mImmersionBar!!.statusBarDarkFont(true).statusBarColor(R.color.transparent).init()
-        rv_home_page_three_icon.layoutManager = GridLayoutManager(this, 3,
-                LinearLayoutManager.VERTICAL, false)
+//        rv_home_page_three_icon.layoutManager = GridLayoutManager(this, 3,
+//                LinearLayoutManager.VERTICAL, false)
     }
 
     override fun initData() {
-        setTools()
 
         ll_home_page_two.setOnClickListener {
-            ARouter.getInstance().build("/app/top").navigation()
+//            ARouter.getInstance().build("/app/top").navigation()
+            startActivity(Intent(this, ANewStoreList::class.java))
         }
         ll_home_page_one.setOnClickListener {
             ARouter.getInstance().build("/delivery/hometest").navigation()
@@ -64,25 +64,30 @@ class AHome : ABase() {
         tv_home_location.setOnClickListener {
             startActivityForResult(Intent(this, AChoiceCity::class.java), 1)
         }
+        rl_person.setOnClickListener {
+            // 1. 应用内简单的跳转(通过URL跳转在'进阶用法'中)
+            ARouter.getInstance().build("/my/setting").navigation()
+        }
+
 
     }
 
     override fun start() {
     }
 
-    /**
-     * 设置工具集
-     */
-    private fun setTools() {
-        var adapter = object : CommonAdapter<String>(this, R.layout.item_home_page_three_icon, info.toMutableList()) {
-            override fun convert(holder: ViewHolder?, t: String?, position: Int) {
-                holder!!.getView<ImageView>(com.future.taurus.R.id.iv_icon_bg).background = getDrawable(iconImg[position])
-
-
-            }
-        }
-        rv_home_page_three_icon.adapter = adapter
-    }
+//    /**
+//     * 设置工具集
+//     */
+//    private fun setTools() {
+//        var adapter = object : CommonAdapter<String>(this, R.layout.item_home_page_three_icon, info.toMutableList()) {
+//            override fun convert(holder: ViewHolder?, t: String?, position: Int) {
+//                holder!!.getView<ImageView>(com.future.taurus.R.id.iv_icon_bg).background = getDrawable(iconImg[position])
+//
+//
+//            }
+//        }
+//        rv_home_page_three_icon.adapter = adapter
+//    }
 
     private var mExitTime: Long = 0
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {

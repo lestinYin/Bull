@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_117"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/shape_card_bg"
+    tools:ignore="MissingConstraints"
+    android:layout_marginBottom="@dimen/dp_10"
+    >
+
+    <RelativeLayout
+        android:id="@+id/rl_bank_icon"
+        android:layout_width="@dimen/dp_34"
+        android:layout_height="@dimen/dp_34"
+        android:layout_marginLeft="@dimen/dp_22"
+        android:layout_marginTop="@dimen/dp_22"
+        android:background="@drawable/shape_circle_white_bg"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@mipmap/zhongguoyinhang" />
+
+    </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="中国银行"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintTop_toTopOf="@id/rl_bank_icon"
+        app:layout_constraintLeft_toRightOf="@id/rl_bank_icon"
+        android:layout_marginLeft="@dimen/dp_16"
+        />
+    <TextView
+        android:id="@+id/tv_card_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="储蓄卡"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        app:layout_constraintLeft_toRightOf="@id/rl_bank_icon"
+        app:layout_constraintBottom_toBottomOf="@id/rl_bank_icon"
+        android:layout_marginLeft="@dimen/dp_16"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="****  ****  ****5678"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_card_type"
+        app:layout_constraintLeft_toLeftOf="@id/tv_card_type"
+        android:layout_marginTop="@dimen/dp_11"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/zhongguoyinhang_bg"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+
+
+</android.support.constraint.ConstraintLayout>

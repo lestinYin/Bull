@@ -16,6 +16,7 @@
             android:id="@+id/iv_raiders_head"
             android:layout_width="@dimen/dp_40"
             android:layout_height="@dimen/dp_40"
+            android:background="@mipmap/my_head_default"
              />
         <TextView
             android:id="@+id/tv_raiders_name"

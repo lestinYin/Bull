@@ -1,4 +1,22 @@
 <resources>
+    <array name="city_lists">
+        <item>中国香港</item>
+        <item>中国澳门</item>
+        <item>东京</item>
+        <item>中国香港</item>
+        <item>中国澳门</item>
+        <item>东京</item>
+    </array>
+
+    <array name="city_list_infos">
+        <item>美食购物天堂</item>
+        <item>国际烟花汇演</item>
+        <item>游迪士尼公园</item>
+        <item>美食购物天堂</item>
+        <item>国际烟花汇演</item>
+        <item>游迪士尼公园</item>
+    </array>
+
     <string name="app_name">Taurus</string>
     <string name="daka">进店打卡</string>
     <string name="daka1">打卡 + 320</string>

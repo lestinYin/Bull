@@ -3,6 +3,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.jinniu.my">
 
+    <application tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".activity.AComment"></activity>
+        <activity android:name=".activity.AAboatUs" />
+        <activity android:name=".activity.AQuestion" />
+        <activity android:name=".activity.AIntegralCenter" />
+        <activity android:name=".activity.ACoupon" />
+        <activity android:name=".activity.ACustomerService" />
+        <activity android:name=".activity.AFeedBack" />
+        <activity android:name=".activity.AXiaoEPay" />
+        <activity android:name=".activity.AAcountSafe" />
+        <activity android:name=".activity.ASetting" />
+        <activity
+            android:name=".activity.AAddBankCard"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".activity.AMyCard" />
+        <activity android:name=".activity.AWithDraw" />
+        <activity android:name=".activity.AWallet" />
+        <activity android:name=".activity.AMyReceiptAddress" />
+        <activity android:name=".activity.AChangeUserName" />
+        <activity android:name=".activity.AMyAccount" />
+        <activity android:name=".activity.AMy" />
+    </application>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -12,13 +34,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
+
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-
-    <application tools:ignore="GoogleAppIndexingWarning"
-        >
-
-        <activity android:name=".AMy"/>
-
-    </application>
 
 </manifest>

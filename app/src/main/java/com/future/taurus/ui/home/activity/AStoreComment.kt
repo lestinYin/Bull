@@ -4,23 +4,17 @@ import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.text.TextUtils
 import android.view.*
-import android.view.animation.TranslateAnimation
 import android.widget.EditText
-import android.widget.LinearLayout
 import android.widget.TextView
 import com.future.taurus.R
 import com.future.taurus.ui.home.adapter.StoreCommentAdapter
-import com.future.taurus.ui.home.entity.EHome
 import com.lestin.yin.Constants
 import com.lestin.yin.base.ABase
 import com.lestin.yin.entity.StoreComentListContent
 import com.lestin.yin.utils.ToastUtils
 import kotlinx.android.synthetic.main.activity_astore_comment.*
-import kotlinx.android.synthetic.main.dialog_store_comment.*
-import java.util.ArrayList
 
 /**
  * 店铺评论页

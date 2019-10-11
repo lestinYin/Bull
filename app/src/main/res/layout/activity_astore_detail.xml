@@ -26,7 +26,8 @@
                 android:id="@+id/mIv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"
+                />
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -34,13 +35,32 @@
                 android:layout_height="?android:actionBarSize"
                 android:layout_marginTop="@dimen/dp_20"
                 app:layout_collapseMode="pin">
-                <!--<ImageView-->
-                    <!--android:id="@+id/iv_back"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:padding="@dimen/dp_10"-->
-                    <!--android:src="@mipmap/white_arrow_back"-->
-                    <!--/>-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/iv_jubao_store"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/dp_10"
+                        android:src="@mipmap/jubao_icon"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/dp_10"
+                        android:layout_centerVertical="true"
+                        />
+                    <ImageView
+                        android:id="@+id/iv_clock"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/dp_10"
+                        android:src="@mipmap/delivery_store_clock"
+                        android:layout_marginRight="@dimen/dp_10"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@id/iv_jubao_store"
+                        />
+
+                </RelativeLayout>
+
 
             </android.support.v7.widget.Toolbar>
 

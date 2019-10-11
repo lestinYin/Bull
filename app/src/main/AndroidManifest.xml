@@ -12,8 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.home.activity.ANewStoreList"></activity>
-        <!-- ７．０缓存文件Bug问题 -->
+        <activity android:name=".ui.home.activity.AJubaoDaren"></activity>
+        <activity android:name=".ui.home.activity.ADarenHome" />
+        <activity android:name=".ui.home.activity.AJubaoRaiders" />
+        <activity android:name=".ui.home.activity.AJubaoStore" />
+        <activity android:name=".ui.home.activity.ACommonList" /> <!-- ７．０缓存文件Bug问题 -->
         <activity
             android:name=".ui.login.ASplash"
             android:theme="@style/launch_style">

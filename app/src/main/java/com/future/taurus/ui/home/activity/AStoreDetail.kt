@@ -16,6 +16,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.*
 import android.widget.ImageView
 import android.widget.LinearLayout
+import com.alibaba.android.arouter.launcher.ARouter
 import com.future.taurus.MyApplication
 import com.future.taurus.R
 import com.future.taurus.ui.home.adapter.HomeAdapter
@@ -132,6 +133,23 @@ class AStoreDetail : ABase() {
         iv_store_detail_call_phone.setOnClickListener {
             showCallPhoneDialog()
         }
+        //推荐搭配
+        rl_tuijian.setOnClickListener {
+            startActivity(Intent(this, ACommonList::class.java).putExtra("type",2))
+        }
+        //员工风采
+        rl_fencai.setOnClickListener {
+            startActivity(Intent(this, ACommonList::class.java).putExtra("type",3))
+        }
+        //举报商家
+        iv_jubao_store.setOnClickListener {
+            startActivity(Intent(this, AJubaoStore::class.java))
+        }
+        //菜单
+        rl_caidan.setOnClickListener{
+            ARouter.getInstance().build("/delivery/foodList").navigation()
+        }
+
 
         fillHorizentalPic()
 

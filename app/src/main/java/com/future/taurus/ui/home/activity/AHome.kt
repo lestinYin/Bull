@@ -55,7 +55,7 @@ class AHome : ABase() {
 
         ll_home_page_two.setOnClickListener {
 //            ARouter.getInstance().build("/app/top").navigation()
-            startActivity(Intent(this, ANewStoreList::class.java))
+            startActivity(Intent(this, ACommonList::class.java).putExtra("type",1))
         }
         ll_home_page_one.setOnClickListener {
             ARouter.getInstance().build("/delivery/hometest").navigation()

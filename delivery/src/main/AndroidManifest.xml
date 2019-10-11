@@ -4,9 +4,10 @@
     package="com.jinniu.delivery">
 
     <application tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activity.ASearchDelivery"
-            android:windowSoftInputMode="stateAlwaysVisible"
-            />
+        <activity android:name=".activity.ANewStoreList"></activity>
+        <activity
+            android:name=".activity.ASearchDelivery"
+            android:windowSoftInputMode="stateAlwaysVisible" />
         <activity android:name=".activity.AChoiceReceiptAdd" />
         <activity
             android:name=".activity.AFoodDetail"

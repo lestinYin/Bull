@@ -112,6 +112,14 @@
         android:layout_marginTop="@dimen/dp_20"
 
         />
+    <ImageView
+        android:id="@+id/tv_jubao_raiders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/jubao_raiders"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/tv_home_raiders_time"
+        />
     <TextView
         android:id="@+id/tv_home_raiders_like_counts"
         android:layout_width="wrap_content"
@@ -120,8 +128,10 @@
         android:textColor="#ff353b50"
         android:textSize="12sp"
         android:drawableLeft="@mipmap/home_raiders_like"
-        android:layout_alignParentRight="true"
         android:layout_alignTop="@id/tv_home_raiders_time"
         android:drawablePadding="@dimen/dp_6"
+        android:layout_toLeftOf="@id/tv_jubao_raiders"
+        android:layout_marginRight="@dimen/dp_5"
         />
+
 </RelativeLayout>

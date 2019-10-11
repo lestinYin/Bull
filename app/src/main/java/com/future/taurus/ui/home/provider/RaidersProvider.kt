@@ -1,14 +1,19 @@
 package com.future.taurus.ui.home.provider
 
+import android.content.Intent
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import com.chad.library.adapter.base.BaseViewHolder
 import com.chad.library.adapter.base.provider.BaseItemProvider
 import com.future.taurus.MyApplication
 import com.future.taurus.R
+import com.future.taurus.ui.home.activity.ADarenHome
+import com.future.taurus.ui.home.activity.AJubaoRaiders
+import com.future.taurus.ui.home.activity.AJubaoStore
 import com.future.taurus.ui.home.adapter.HomeAdapter
 import com.lestin.yin.entity.IHomeType
 import com.lestin.yin.entity.ReviewInfo
@@ -17,6 +22,7 @@ import com.lestin.yin.widget.photoview.ImageDetailsActivity
 import com.zhy.adapter.recyclerview.CommonAdapter
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter
 import com.zhy.adapter.recyclerview.base.ViewHolder
+import kotlinx.android.synthetic.main.activity_astore_detail.*
 import java.util.ArrayList
 
 /**
@@ -72,5 +78,15 @@ class RaidersProvider : BaseItemProvider<IHomeType, BaseViewHolder>() {
 //            }
 //
 //        })
+        helper.getView<ImageView>(R.id.tv_jubao_raiders).setOnClickListener {
+            //举报攻略
+                mContext.startActivity(Intent(mContext, AJubaoRaiders::class.java))
+
+
+        }
+        helper.getView<ImageView>(R.id.iv_raiders_head).setOnClickListener {
+            //达人主页
+                mContext.startActivity(Intent(mContext, ADarenHome::class.java))
+        }
     }
 }

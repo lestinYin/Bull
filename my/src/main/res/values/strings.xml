@@ -49,6 +49,8 @@
     <string name="integral_center">积分中心</string>
     <string name="aboat_us">关于我们</string>
     <string name="where_is_eat">哪里值得吃</string>
+    <string name="recommend_mix">推荐搭配</string>
+    <string name="staff_style">员工风采</string>
 
 
     <string-array name="my_tools">

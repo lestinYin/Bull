@@ -24,6 +24,7 @@ import com.lestin.yin.Constants
 import com.lestin.yin.entity.IHomeType
 import com.lestin.yin.entity.ReviewInfo
 import com.lestin.yin.entity.StoreDetailContent
+import com.lestin.yin.utils.LogUtil
 import com.lestin.yin.utils.ViewUtil
 import com.lestin.yin.utils.image.ShowImage
 import com.lestin.yin.widget.listener.AppBarStateChangeListener
@@ -40,9 +41,13 @@ import kotlinx.android.synthetic.main.item_store_detail_bottom.view.tv_store_det
 import kotlinx.android.synthetic.main.item_store_detail_bottom.view.tv_store_detail_tag
 import kotlinx.android.synthetic.main.item_store_detail_bottom.view.tv_store_detail_title
 import kotlinx.android.synthetic.main.item_store_detail_bottom.view.tv_store_detail_yinye
+import java.math.BigDecimal
+import java.math.RoundingMode
 
 
 import java.util.ArrayList
+import java.text.DecimalFormat
+import kotlin.math.abs
 
 
 /**
@@ -111,8 +116,33 @@ class AStoreDetail : ABase() {
                     titleText.visibility = View.VISIBLE
                 } else {
                     //中间状态
-//                    toolbar.setNavigationIcon(android.support.v7.appcompat.R.drawable.abc_ic_ab_back_material)
+
                 }
+            }
+
+            override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {
+
+                super.onOffsetChanged(appBarLayout, verticalOffset)
+                LogUtil.e(verticalOffset.toString())
+                val bottom = mIv.bottom-toolbar.bottom
+
+                val abs2 = Math.abs(verticalOffset)
+                val df = DecimalFormat("0.00")//设置保留位数
+                val format = df.format( abs2/ bottom)
+                val abs1 = abs2 / bottom;
+//                val y = div(abs(verticalOffset).toDouble(),bottom.toDouble())
+
+//                var abs = mul(y,255.toDouble(),2).toInt()
+                var y = BigDecimal(Math.abs(verticalOffset)).divide(BigDecimal(bottom),3,RoundingMode.HALF_UP)
+
+//                var abs:Int = Math.abs(((verticalOffset / mIv.bottom) * 255))
+                var abs =  (y.toDouble() * 255).toInt()
+                abs = if(abs>255) {255} else {abs}
+
+                toolbar.background.alpha= abs
+                LogUtil.e(abs.toString())
+
+
             }
         })
 
@@ -154,7 +184,9 @@ class AStoreDetail : ABase() {
         fillHorizentalPic()
 
     }
+    fun mul(d1:Double,d2: Double,decimalPoint:Int):Double = BigDecimal(d1).multiply(BigDecimal(d2)).setScale(decimalPoint,BigDecimal.ROUND_DOWN).toDouble()
 
+    fun div(d1:Double,d2: Double):Double = BigDecimal(d1).divide(BigDecimal(d2)).setScale(2, BigDecimal.ROUND_UP).toDouble()
     /**
      *填充水平图片
      */
